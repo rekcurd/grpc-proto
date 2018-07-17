@@ -1,0 +1,214 @@
+// Template for Drucker
+// DO NOT EDIT!
+
+syntax = "proto3";
+
+package drucker;
+
+// DruckerDashboard: Easy to mange your ML model.
+service DruckerDashboard {
+    // Get Service Info.
+    rpc ServiceInfo (ServiceInfoRequest) returns (ServiceInfoResponse) {}
+
+    // Upload your latest ML model.
+    rpc UploadModel (stream UploadModelRequest) returns (ModelResponse) {}
+
+    // Switch your ML model to run.
+    rpc SwitchModel (SwitchModelRequest) returns (ModelResponse) {}
+
+    // Evaluate the accuracy of your ML model.
+    rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
+}
+
+// DruckerWorker: Easy to perform your ML service.
+service DruckerWorker {
+    // Input string, output string.
+    rpc Predict_String_String (StringInput) returns (StringOutput) {}
+
+    // Input string, output bytes.
+    rpc Predict_String_Bytes (StringInput) returns (stream BytesOutput) {}
+
+    // Input string, output array[int].
+    rpc Predict_String_ArrInt (StringInput) returns (ArrIntOutput) {}
+
+    // Input string, output array[float].
+    rpc Predict_String_ArrFloat (StringInput) returns (ArrFloatOutput) {}
+
+    // Input string, output array[string].
+    rpc Predict_String_ArrString (StringInput) returns (ArrStringOutput) {}
+
+
+    // Input bytes, output string.
+    rpc Predict_Bytes_String (stream BytesInput) returns (StringOutput) {}
+
+    // Input bytes, output bytes.
+    rpc Predict_Bytes_Bytes (stream BytesInput) returns (stream BytesOutput) {}
+
+    // Input bytes, output array[int].
+    rpc Predict_Bytes_ArrInt (stream BytesInput) returns (ArrIntOutput) {}
+
+    // Input bytes, output array[float].
+    rpc Predict_Bytes_ArrFloat (stream BytesInput) returns (ArrFloatOutput) {}
+
+    // Input bytes, output array[string].
+    rpc Predict_Bytes_ArrString (stream BytesInput) returns (ArrStringOutput) {}
+
+
+    // Input array[int], output string.
+    rpc Predict_ArrInt_String (ArrIntInput) returns (StringOutput) {}
+
+    // Input array[int], output bytes.
+    rpc Predict_ArrInt_Bytes (ArrIntInput) returns (stream BytesOutput) {}
+
+    // Input array[int], output array[int].
+    rpc Predict_ArrInt_ArrInt (ArrIntInput) returns (ArrIntOutput) {}
+
+    // Input array[int], output array[float].
+    rpc Predict_ArrInt_ArrFloat (ArrIntInput) returns (ArrFloatOutput) {}
+
+    // Input array[int], output array[string].
+    rpc Predict_ArrInt_ArrString (ArrIntInput) returns (ArrStringOutput) {}
+
+
+    // Input array[float], output string.
+    rpc Predict_ArrFloat_String (ArrFloatInput) returns (StringOutput) {}
+
+    // Input array[float], output bytes.
+    rpc Predict_ArrFloat_Bytes (ArrFloatInput) returns (stream BytesOutput) {}
+
+    // Input array[float], output array[int].
+    rpc Predict_ArrFloat_ArrInt (ArrFloatInput) returns (ArrIntOutput) {}
+
+    // Input array[float], output array[float].
+    rpc Predict_ArrFloat_ArrFloat (ArrFloatInput) returns (ArrFloatOutput) {}
+
+    // Input array[float], output array[string].
+    rpc Predict_ArrFloat_ArrString (ArrFloatInput) returns (ArrStringOutput) {}
+
+
+    // Input array[string], output string.
+    rpc Predict_ArrString_String (ArrStringInput) returns (StringOutput) {}
+
+    // Input array[string], output bytes.
+    rpc Predict_ArrString_Bytes (ArrStringInput) returns (stream BytesOutput) {}
+
+    // Input array[string], output array[int].
+    rpc Predict_ArrString_ArrInt (ArrStringInput) returns (ArrIntOutput) {}
+
+    // Input array[string], output array[float].
+    rpc Predict_ArrString_ArrFloat (ArrStringInput) returns (ArrFloatOutput) {}
+
+    // Input array[string], output array[string].
+    rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
+}
+
+// Request of ServiceInfo.
+message ServiceInfoRequest {}
+
+// Response of ServiceInfo.
+message ServiceInfoResponse {
+    string application_name = 1;
+    string service_name = 2;
+    string service_level = 3;
+}
+
+// Request of UploadModel.
+message UploadModelRequest {
+    string path = 1;
+    bytes data = 2;
+}
+
+// Request of SwitchModel.
+message SwitchModelRequest {
+    string path = 1;
+}
+
+// Response of ModelControl (Upload / Switch / Delete).
+message ModelResponse {
+    int32 status = 1;
+    string message = 2;
+}
+
+// Request of EvaluateModel.
+message EvaluateModelRequest {
+    bytes data = 1;
+}
+
+// Response of EvaluateModel.
+message EvaluateModelResponse {
+    int32 num = 1;
+    float accuracy = 2;
+    repeated float precision = 3;
+    repeated float recall = 4;
+    repeated float fvalue = 5;
+}
+
+// Option (json format).
+message Option {
+    string val = 1;
+}
+
+// Input string
+message StringInput {
+    string input = 1;
+    Option option = 2;
+}
+
+// Input bytes
+message BytesInput {
+    bytes input = 1;
+    Option option = 2;
+}
+
+// Input array[int]
+message ArrIntInput {
+    repeated int32 input = 1;
+    Option option = 2;
+}
+
+// Input array[float]
+message ArrFloatInput {
+    repeated float input = 1;
+    Option option = 2;
+}
+
+// Input array[float]
+message ArrStringInput {
+    repeated string input = 1;
+    Option option = 2;
+}
+
+// Output string
+message StringOutput {
+    string output = 1;
+    float score = 2;
+    Option option = 3;
+}
+
+// Output bytes
+message BytesOutput {
+    bytes output = 1;
+    float score = 2;
+    Option option = 3;
+}
+
+// Output array[int]
+message ArrIntOutput {
+    repeated int32 output = 1;
+    repeated float score = 2;
+    Option option = 3;
+}
+
+// Output array[float]
+message ArrFloatOutput {
+    repeated float output = 1;
+    repeated float score = 2;
+    Option option = 3;
+}
+
+// Output array[string]
+message ArrStringOutput {
+    repeated string output = 1;
+    repeated float score = 2;
+    Option option = 3;
+}

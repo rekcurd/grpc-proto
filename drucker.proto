@@ -102,6 +102,13 @@ service DruckerWorker {
     rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
 }
 
+enum EnumVersionInfo {
+    // Version info. The largest number is the latest version.
+    idx_2 = 0;
+    v1 = 1;
+    v2 = 2;
+}
+
 // Request of ServiceInfo.
 message ServiceInfoRequest {}
 

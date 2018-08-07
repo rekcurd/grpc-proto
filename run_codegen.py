@@ -7,4 +7,4 @@ import os
 sd = os.path.abspath(os.path.dirname(__file__))
 os.chdir(sd)
 
-protoc.main(('', '-I.', '--python_out=../', '--grpc_python_out=../', 'drucker.proto',))
+protoc.main(('', '-I/usr/local/include', '-I.', '--python_out=../', '--grpc_python_out=../', 'drucker.proto',))

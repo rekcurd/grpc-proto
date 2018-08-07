@@ -5,6 +5,19 @@ syntax = "proto3";
 
 package drucker;
 
+import "google/protobuf/descriptor.proto";
+extend google.protobuf.FileOptions {
+    string drucker_grpc_proto_version = 50000;
+}
+option (drucker_grpc_proto_version) = "v2";
+
+enum EnumVersionInfo {
+    // Version info. The largest number is the latest version.
+    v0 = 0;
+    v1 = 1;
+    v2 = 2;
+}
+
 // DruckerDashboard: Easy to mange your ML model.
 service DruckerDashboard {
     // Get Service Info.
@@ -100,13 +113,6 @@ service DruckerWorker {
 
     // Input array[string], output array[string].
     rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
-}
-
-enum EnumVersionInfo {
-    // Version info. The largest number is the latest version.
-    idx_2 = 0;
-    v1 = 1;
-    v2 = 2;
 }
 
 // Request of ServiceInfo.

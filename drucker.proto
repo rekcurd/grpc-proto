@@ -6,16 +6,19 @@ syntax = "proto3";
 package drucker;
 
 import "google/protobuf/descriptor.proto";
+import "google/protobuf/any.proto";
+
 extend google.protobuf.FileOptions {
     string drucker_grpc_proto_version = 50000;
 }
-option (drucker_grpc_proto_version) = "v2";
+option (drucker_grpc_proto_version) = "v3";
 
 enum EnumVersionInfo {
     // Version info. The largest number is the latest version.
     v0 = 0;
     v1 = 1;
     v2 = 2;
+    v3 = 3;
 }
 
 // DruckerDashboard: Easy to mange your ML model.
@@ -35,83 +38,96 @@ service DruckerDashboard {
 
 // DruckerWorker: Easy to perform your ML service.
 service DruckerWorker {
-    // Input string, output string.
+    // Input any, output any.
+    rpc Predict_Any_Any (AnyInput) returns (AnyOutput) {}
+
+    // Input any, output file.
+    rpc Predict_Any_File (AnyInput) returns (stream BytesOutput) {}
+
+    // Input file, output any.
+    rpc Predict_File_Any (stream BytesInput) returns (AnyOutput) {}
+
+    // Input file, output file.
+    rpc Predict_File_File (stream BytesInput) returns (stream BytesOutput) {}
+
+
+    // @deprecated Input string, output string.
     rpc Predict_String_String (StringInput) returns (StringOutput) {}
 
-    // Input string, output bytes.
+    // @deprecated Input string, output bytes.
     rpc Predict_String_Bytes (StringInput) returns (stream BytesOutput) {}
 
-    // Input string, output array[int].
+    // @deprecated Input string, output array[int].
     rpc Predict_String_ArrInt (StringInput) returns (ArrIntOutput) {}
 
-    // Input string, output array[float].
+    // @deprecated Input string, output array[float].
     rpc Predict_String_ArrFloat (StringInput) returns (ArrFloatOutput) {}
 
-    // Input string, output array[string].
+    // @deprecated Input string, output array[string].
     rpc Predict_String_ArrString (StringInput) returns (ArrStringOutput) {}
 
 
-    // Input bytes, output string.
+    // @deprecated Input bytes, output string.
     rpc Predict_Bytes_String (stream BytesInput) returns (StringOutput) {}
 
-    // Input bytes, output bytes.
+    // @deprecated Input bytes, output bytes.
     rpc Predict_Bytes_Bytes (stream BytesInput) returns (stream BytesOutput) {}
 
-    // Input bytes, output array[int].
+    // @deprecated Input bytes, output array[int].
     rpc Predict_Bytes_ArrInt (stream BytesInput) returns (ArrIntOutput) {}
 
-    // Input bytes, output array[float].
+    // @deprecated Input bytes, output array[float].
     rpc Predict_Bytes_ArrFloat (stream BytesInput) returns (ArrFloatOutput) {}
 
-    // Input bytes, output array[string].
+    // @deprecated Input bytes, output array[string].
     rpc Predict_Bytes_ArrString (stream BytesInput) returns (ArrStringOutput) {}
 
 
-    // Input array[int], output string.
+    // @deprecated Input array[int], output string.
     rpc Predict_ArrInt_String (ArrIntInput) returns (StringOutput) {}
 
-    // Input array[int], output bytes.
+    // @deprecated Input array[int], output bytes.
     rpc Predict_ArrInt_Bytes (ArrIntInput) returns (stream BytesOutput) {}
 
-    // Input array[int], output array[int].
+    // @deprecated Input array[int], output array[int].
     rpc Predict_ArrInt_ArrInt (ArrIntInput) returns (ArrIntOutput) {}
 
-    // Input array[int], output array[float].
+    // @deprecated Input array[int], output array[float].
     rpc Predict_ArrInt_ArrFloat (ArrIntInput) returns (ArrFloatOutput) {}
 
-    // Input array[int], output array[string].
+    // @deprecated Input array[int], output array[string].
     rpc Predict_ArrInt_ArrString (ArrIntInput) returns (ArrStringOutput) {}
 
 
-    // Input array[float], output string.
+    // @deprecated Input array[float], output string.
     rpc Predict_ArrFloat_String (ArrFloatInput) returns (StringOutput) {}
 
-    // Input array[float], output bytes.
+    // @deprecated Input array[float], output bytes.
     rpc Predict_ArrFloat_Bytes (ArrFloatInput) returns (stream BytesOutput) {}
 
-    // Input array[float], output array[int].
+    // @deprecated Input array[float], output array[int].
     rpc Predict_ArrFloat_ArrInt (ArrFloatInput) returns (ArrIntOutput) {}
 
-    // Input array[float], output array[float].
+    // @deprecated Input array[float], output array[float].
     rpc Predict_ArrFloat_ArrFloat (ArrFloatInput) returns (ArrFloatOutput) {}
 
-    // Input array[float], output array[string].
+    // @deprecated Input array[float], output array[string].
     rpc Predict_ArrFloat_ArrString (ArrFloatInput) returns (ArrStringOutput) {}
 
 
-    // Input array[string], output string.
+    // @deprecated Input array[string], output string.
     rpc Predict_ArrString_String (ArrStringInput) returns (StringOutput) {}
 
-    // Input array[string], output bytes.
+    // @deprecated Input array[string], output bytes.
     rpc Predict_ArrString_Bytes (ArrStringInput) returns (stream BytesOutput) {}
 
-    // Input array[string], output array[int].
+    // @deprecated Input array[string], output array[int].
     rpc Predict_ArrString_ArrInt (ArrStringInput) returns (ArrIntOutput) {}
 
-    // Input array[string], output array[float].
+    // @deprecated Input array[string], output array[float].
     rpc Predict_ArrString_ArrFloat (ArrStringInput) returns (ArrFloatOutput) {}
 
-    // Input array[string], output array[string].
+    // @deprecated Input array[string], output array[string].
     rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
 }
 
@@ -161,7 +177,132 @@ message Option {
     string val = 1;
 }
 
-// Input string
+// Input any
+message AnyInput {
+    google.protobuf.Any input = 1;
+    Option option = 2;
+}
+
+// Output any
+message AnyOutput {
+    google.protobuf.Any output = 1;
+    repeated float score = 2;
+    Option option = 3;
+}
+
+message SingleInt32 {
+    int32 val = 1;
+}
+
+message SingleInt64 {
+    int64 val = 1;
+}
+
+message SingleUint32 {
+    uint32 val = 1;
+}
+
+message SingleUint64 {
+    uint64 val = 1;
+}
+
+message SingleSint32 {
+    sint32 val = 1;
+}
+
+message SingleSint64 {
+    sint64 val = 1;
+}
+
+message SingleFixed32 {
+    fixed32 val = 1;
+}
+
+message SingleFixed64 {
+    fixed64 val = 1;
+}
+
+message SingleSfixed32 {
+    sfixed32 val = 1;
+}
+
+message SingleSfixed64 {
+    sfixed64 val = 1;
+}
+
+message SingleFloat {
+    float val = 1;
+}
+
+message SingleDouble {
+    double val = 1;
+}
+
+message SingleBool {
+    bool val = 1;
+}
+
+message SingleString {
+    string val = 1;
+}
+
+message ArrInt32 {
+    repeated int32 val = 1;
+}
+
+message ArrInt64 {
+    repeated int64 val = 1;
+}
+
+message ArrUint32 {
+    repeated uint32 val = 1;
+}
+
+message ArrUint64 {
+    repeated uint64 val = 1;
+}
+
+message ArrSint32 {
+    repeated sint32 val = 1;
+}
+
+message ArrSint64 {
+    repeated sint64 val = 1;
+}
+
+message ArrFixed32 {
+    repeated fixed32 val = 1;
+}
+
+message ArrFixed64 {
+    repeated fixed64 val = 1;
+}
+
+message ArrSfixed32 {
+    repeated sfixed32 val = 1;
+}
+
+message ArrSfixed64 {
+    repeated sfixed64 val = 1;
+}
+
+message ArrFloat {
+    repeated float val = 1;
+}
+
+message ArrDouble {
+    repeated double val = 1;
+}
+
+message ArrBool {
+    repeated bool val = 1;
+}
+
+message ArrString {
+    repeated string val = 1;
+}
+
+// @deprecated Input string
 message StringInput {
     string input = 1;
     Option option = 2;
@@ -173,25 +314,25 @@ message BytesInput {
     Option option = 2;
 }
 
-// Input array[int]
+// @deprecated Input array[int]
 message ArrIntInput {
     repeated int32 input = 1;
     Option option = 2;
 }
 
-// Input array[float]
+// @deprecated Input array[float]
 message ArrFloatInput {
     repeated float input = 1;
     Option option = 2;
 }
 
-// Input array[float]
+// @deprecated Input array[float]
 message ArrStringInput {
     repeated string input = 1;
     Option option = 2;
 }
 
-// Output string
+// @deprecated Output string
 message StringOutput {
     string output = 1;
     float score = 2;
@@ -205,21 +346,21 @@ message BytesOutput {
     Option option = 3;
 }
 
-// Output array[int]
+// @deprecated Output array[int]
 message ArrIntOutput {
     repeated int32 output = 1;
     repeated float score = 2;
     Option option = 3;
 }
 
-// Output array[float]
+// @deprecated Output array[float]
 message ArrFloatOutput {
     repeated float output = 1;
     repeated float score = 2;
     Option option = 3;
 }
 
-// Output array[string]
+// @deprecated Output array[string]
 message ArrStringOutput {
     repeated string output = 1;
     repeated float score = 2;

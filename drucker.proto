@@ -11,14 +11,13 @@ import "google/protobuf/any.proto";
 extend google.protobuf.FileOptions {
     string drucker_grpc_proto_version = 50000;
 }
-option (drucker_grpc_proto_version) = "v3";
+option (drucker_grpc_proto_version) = "v2";
 
 enum EnumVersionInfo {
     // Version info. The largest number is the latest version.
     v0 = 0;
     v1 = 1;
     v2 = 2;
-    v3 = 3;
 }
 
 // DruckerDashboard: Easy to mange your ML model.

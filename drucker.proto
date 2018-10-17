@@ -154,6 +154,14 @@ message EvaluateModelResponse {
     repeated float precision = 3;
     repeated float recall = 4;
     repeated float fvalue = 5;
+
+    // result for each test data
+    repeated bool is_correct = 6;
+    repeated string prediction = 7;
+    repeated float predict_score = 8;
+
+    // json format
+    string option = 9;
 }
 
 // Option (json format).

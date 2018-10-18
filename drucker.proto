@@ -31,6 +31,9 @@ service DruckerDashboard {
 
     // Evaluate the accuracy of your ML model.
     rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
+
+    // Get detailed result of EvaluateModel
+    rpc EvaluateResult (EvaluateResultRequest) returns (stream EvaluateResultResponse) {}
 }
 
 // DruckerWorker: Easy to perform your ML service.
@@ -155,13 +158,31 @@ message EvaluateModelResponse {
     repeated float recall = 4;
     repeated float fvalue = 5;
 
-    // result for each test data
-    repeated bool is_correct = 6;
-    repeated string prediction = 7;
-    repeated float predict_score = 8;
+    // json format
+    string option = 6;
+
+    string evaluate_ver = 7;
+}
+
+// Request of EvaluateResult.
+message EvaluateResultRequest {
+    string model_path = 1;
+    string evaluate_ver = 2;
+}
+
+// Response of EvaluateResult.
+message EvaluateResultResponse {
+    int32 num = 1;
+    float accuracy = 2;
+    repeated float precision = 3;
+    repeated float recall = 4;
+    repeated float fvalue = 5;
 
     // json format
-    string option = 9;
+    string option = 6;
+
+    // result for each test data
+    bytes data = 7;
 }
 
 // Option (json format).

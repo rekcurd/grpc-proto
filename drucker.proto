@@ -295,13 +295,13 @@ message EvaluationResultRequest {
 message EvaluationResultResponse {
     EvaluationMetrics metrics = 1;
 
-    message EvaluationDetail {
+    message Detail {
         bytes data = 1;
         bool is_correct = 2;
         Label label = 3;
     }
 
-    repeated EvaluationDetail detail = 2;
+    repeated Detail detail = 2;
 }
 
 // Option (json format).

@@ -267,6 +267,7 @@ message ModelResponse {
 // Request of EvaluateModel.
 message EvaluateModelRequest {
     bytes data = 1;
+    string data_path = 2;
 }
 
 message EvaluationMetrics {

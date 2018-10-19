@@ -33,7 +33,7 @@ service DruckerDashboard {
     rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
 
     // Get detailed result of EvaluateModel
-    rpc EvaluateResult (EvaluateResultRequest) returns (stream EvaluateResultResponse) {}
+    rpc EvaluationResult (EvaluationResultRequest) returns (stream EvaluationResultResponse) {}
 }
 
 // DruckerWorker: Easy to perform your ML service.
@@ -286,13 +286,13 @@ message EvaluateModelResponse {
     EvaluationMetrics metrics = 1;
 }
 
-// Request of EvaluateResult.
-message EvaluateResultRequest {
+// Request of EvaluationResult.
+message EvaluationResultRequest {
     string data_path = 1;
 }
 
-// Response of EvaluateResult.
-message EvaluateResultResponse {
+// Response of EvaluationResult.
+message EvaluationResultResponse {
     EvaluationMetrics metrics = 1;
 
     message EvaluationDetail {

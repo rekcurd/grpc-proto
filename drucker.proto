@@ -136,7 +136,7 @@ message IO {
 
 message Label {
     IO io = 1;
-    float score = 2;
+    repeated float score = 2;
 }
 
 // Request of ServiceInfo.

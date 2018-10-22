@@ -118,123 +118,25 @@ service DruckerWorker {
     rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
 }
 
-message ArrInt32 {
-    repeated int32 val = 1;
-}
-
-message ArrInt64 {
-    repeated int64 val = 1;
-}
-
-message ArrUint32 {
-    repeated uint32 val = 1;
-}
-
-message ArrUint64 {
-    repeated uint64 val = 1;
-}
-
-message ArrSint32 {
-    repeated sint32 val = 1;
-}
-
-message ArrSint64 {
-    repeated sint64 val = 1;
-}
-
-message ArrFixed32 {
-    repeated fixed32 val = 1;
-}
-
-message ArrFixed64 {
-    repeated fixed64 val = 1;
-}
-
-message ArrSfixed32 {
-    repeated sfixed32 val = 1;
-}
-
-message ArrSfixed64 {
-    repeated sfixed64 val = 1;
-}
-
-message ArrFloat {
-    repeated float val = 1;
-}
-
-message ArrDouble {
-    repeated double val = 1;
-}
-
-message ArrBool {
-    repeated bool val = 1;
-}
-
 message ArrString {
     repeated string val = 1;
 }
+message Tensor {
+    repeated int32 shape = 1;
+    repeated double val = 2;
+}
 
 // Supported type of Input/Output data
-message SingleIO {
-    oneof io_oneof {
-        int32 int32_val = 1;
-        int64 int64_val = 2;
-        uint32 uint32_val = 3;
-        uint64 uint64_val = 4;
-        sint32 sint32_val = 5;
-        sint64 sint64_val = 6;
-        fixed32 fixed32_val = 7;
-        fixed64 fixed64_val = 8;
-        sfixed32 sfixed32_val = 9;
-        sfixed64 sfixed64_val = 10;
-        float float_val = 11;
-        double double_val = 12;
-        bool bool_val = 13;
-        string string_val = 14;
-    }
-}
-
-message MultiIO {
-    oneof io_oneof {
-        ArrInt32 int32_val = 1;
-        ArrInt64 int64_val = 2;
-        ArrUint32 uint32_val = 3;
-        ArrUint64 uint64_val = 4;
-        ArrSint32 sint32_val = 5;
-        ArrSint64 sint64_val = 6;
-        ArrFixed32 fixed32_val = 7;
-        ArrFixed64 fixed64_val = 8;
-        ArrSfixed32 sfixed32_val = 9;
-        ArrSfixed64 sfixed64_val = 10;
-        ArrFloat float_val = 11;
-        ArrDouble double_val = 12;
-        ArrBool bool_val = 13;
-        ArrString string_val = 14;
-    }
-}
-
 message IO {
     oneof io_oneof {
-        SingleIO single = 1;
-        MultiIO multi = 2;
+        Tensor tensor = 1;
+        ArrString str = 2;
     }
-}
-
-message SingleLabel {
-    SingleIO io = 1;
-    float score = 2;
-}
-
-message MultiLabel {
-    MultiIO io = 1;
-    repeated float score = 2;
 }
 
 message Label {
-    oneof label_oneof {
-        SingleLabel single = 1;
-        MultiLabel multi = 2;
-    }
+    IO io = 1;
+    float score = 2;
 }
 
 // Request of ServiceInfo.
@@ -296,7 +198,7 @@ message EvaluationResultResponse {
     EvaluationMetrics metrics = 1;
 
     message Detail {
-        bytes data = 1;
+        IO data = 1;
         bool is_correct = 2;
         Label label = 3;
     }

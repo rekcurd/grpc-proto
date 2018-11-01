@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='drucker.proto',
   package='drucker',
   syntax='proto3',
-  serialized_pb=_b('\n\rdrucker.proto\x12\x07\x64rucker\x1a google/protobuf/descriptor.proto\"\x14\n\x12ServiceInfoRequest\"\\\n\x13ServiceInfoResponse\x12\x18\n\x10\x61pplication_name\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x15\n\rservice_level\x18\x03 \x01(\t\"0\n\x12UploadModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\"\n\x12SwitchModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"0\n\rModelResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"$\n\x14\x45valuateModelRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"i\n\x15\x45valuateModelResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\"\x15\n\x06Option\x12\x0b\n\x03val\x18\x01 \x01(\t\"=\n\x0bStringInput\x12\r\n\x05input\x18\x01 \x01(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"<\n\nBytesInput\x12\r\n\x05input\x18\x01 \x01(\x0c\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"=\n\x0b\x41rrIntInput\x12\r\n\x05input\x18\x01 \x03(\x05\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"?\n\rArrFloatInput\x12\r\n\x05input\x18\x01 \x03(\x02\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"@\n\x0e\x41rrStringInput\x12\r\n\x05input\x18\x01 \x03(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"N\n\x0cStringOutput\x12\x0e\n\x06output\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"M\n\x0b\x42ytesOutput\x12\x0e\n\x06output\x18\x01 \x01(\x0c\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"N\n\x0c\x41rrIntOutput\x12\x0e\n\x06output\x18\x01 \x03(\x05\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"P\n\x0e\x41rrFloatOutput\x12\x0e\n\x06output\x18\x01 \x03(\x02\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"Q\n\x0f\x41rrStringOutput\x12\x0e\n\x06output\x18\x01 \x03(\t\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option*)\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x32\xc0\x02\n\x10\x44ruckerDashboard\x12J\n\x0bServiceInfo\x12\x1b.drucker.ServiceInfoRequest\x1a\x1c.drucker.ServiceInfoResponse\"\x00\x12\x46\n\x0bUploadModel\x12\x1b.drucker.UploadModelRequest\x1a\x16.drucker.ModelResponse\"\x00(\x01\x12\x44\n\x0bSwitchModel\x12\x1b.drucker.SwitchModelRequest\x1a\x16.drucker.ModelResponse\"\x00\x12R\n\rEvaluateModel\x12\x1d.drucker.EvaluateModelRequest\x1a\x1e.drucker.EvaluateModelResponse\"\x00(\x01\x32\xfb\x0e\n\rDruckerWorker\x12\x46\n\x15Predict_String_String\x12\x14.drucker.StringInput\x1a\x15.drucker.StringOutput\"\x00\x12\x46\n\x14Predict_String_Bytes\x12\x14.drucker.StringInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_String_ArrInt\x12\x14.drucker.StringInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12J\n\x17Predict_String_ArrFloat\x12\x14.drucker.StringInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12L\n\x18Predict_String_ArrString\x12\x14.drucker.StringInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12\x46\n\x14Predict_Bytes_String\x12\x13.drucker.BytesInput\x1a\x15.drucker.StringOutput\"\x00(\x01\x12\x46\n\x13Predict_Bytes_Bytes\x12\x13.drucker.BytesInput\x1a\x14.drucker.BytesOutput\"\x00(\x01\x30\x01\x12\x46\n\x14Predict_Bytes_ArrInt\x12\x13.drucker.BytesInput\x1a\x15.drucker.ArrIntOutput\"\x00(\x01\x12J\n\x16Predict_Bytes_ArrFloat\x12\x13.drucker.BytesInput\x1a\x17.drucker.ArrFloatOutput\"\x00(\x01\x12L\n\x17Predict_Bytes_ArrString\x12\x13.drucker.BytesInput\x1a\x18.drucker.ArrStringOutput\"\x00(\x01\x12\x46\n\x15Predict_ArrInt_String\x12\x14.drucker.ArrIntInput\x1a\x15.drucker.StringOutput\"\x00\x12\x46\n\x14Predict_ArrInt_Bytes\x12\x14.drucker.ArrIntInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_ArrInt_ArrInt\x12\x14.drucker.ArrIntInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12J\n\x17Predict_ArrInt_ArrFloat\x12\x14.drucker.ArrIntInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12L\n\x18Predict_ArrInt_ArrString\x12\x14.drucker.ArrIntInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12J\n\x17Predict_ArrFloat_String\x12\x16.drucker.ArrFloatInput\x1a\x15.drucker.StringOutput\"\x00\x12J\n\x16Predict_ArrFloat_Bytes\x12\x16.drucker.ArrFloatInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12J\n\x17Predict_ArrFloat_ArrInt\x12\x16.drucker.ArrFloatInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12N\n\x19Predict_ArrFloat_ArrFloat\x12\x16.drucker.ArrFloatInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12P\n\x1aPredict_ArrFloat_ArrString\x12\x16.drucker.ArrFloatInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12L\n\x18Predict_ArrString_String\x12\x17.drucker.ArrStringInput\x1a\x15.drucker.StringOutput\"\x00\x12L\n\x17Predict_ArrString_Bytes\x12\x17.drucker.ArrStringInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12L\n\x18Predict_ArrString_ArrInt\x12\x17.drucker.ArrStringInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12P\n\x1aPredict_ArrString_ArrFloat\x12\x17.drucker.ArrStringInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12R\n\x1bPredict_ArrString_ArrString\x12\x17.drucker.ArrStringInput\x1a\x18.drucker.ArrStringOutput\"\x00:B\n\x1a\x64rucker_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v2b\x06proto3')
+  serialized_pb=_b('\n\rdrucker.proto\x12\x07\x64rucker\x1a google/protobuf/descriptor.proto\"%\n\x12HealthCheckRequest\x12\x0f\n\x07service\x18\x01 \x01(\t\"\x8d\x01\n\x13HealthCheckResponse\x12:\n\x06status\x18\x01 \x01(\x0e\x32*.drucker.HealthCheckResponse.ServingStatus\":\n\rServingStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07SERVING\x10\x01\x12\x0f\n\x0bNOT_SERVING\x10\x02\"\x14\n\x12ServiceInfoRequest\"\\\n\x13ServiceInfoResponse\x12\x18\n\x10\x61pplication_name\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x15\n\rservice_level\x18\x03 \x01(\t\"0\n\x12UploadModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\"\n\x12SwitchModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"0\n\rModelResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"$\n\x14\x45valuateModelRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"i\n\x15\x45valuateModelResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\"\x15\n\x06Option\x12\x0b\n\x03val\x18\x01 \x01(\t\"=\n\x0bStringInput\x12\r\n\x05input\x18\x01 \x01(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"<\n\nBytesInput\x12\r\n\x05input\x18\x01 \x01(\x0c\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"=\n\x0b\x41rrIntInput\x12\r\n\x05input\x18\x01 \x03(\x05\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"?\n\rArrFloatInput\x12\r\n\x05input\x18\x01 \x03(\x02\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"@\n\x0e\x41rrStringInput\x12\r\n\x05input\x18\x01 \x03(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.drucker.Option\"N\n\x0cStringOutput\x12\x0e\n\x06output\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"M\n\x0b\x42ytesOutput\x12\x0e\n\x06output\x18\x01 \x01(\x0c\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"N\n\x0c\x41rrIntOutput\x12\x0e\n\x06output\x18\x01 \x03(\x05\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"P\n\x0e\x41rrFloatOutput\x12\x0e\n\x06output\x18\x01 \x03(\x02\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option\"Q\n\x0f\x41rrStringOutput\x12\x0e\n\x06output\x18\x01 \x03(\t\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.drucker.Option*)\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x32L\n\x06Health\x12\x42\n\x05\x43heck\x12\x1b.drucker.HealthCheckRequest\x1a\x1c.drucker.HealthCheckResponse2\xc0\x02\n\x10\x44ruckerDashboard\x12J\n\x0bServiceInfo\x12\x1b.drucker.ServiceInfoRequest\x1a\x1c.drucker.ServiceInfoResponse\"\x00\x12\x46\n\x0bUploadModel\x12\x1b.drucker.UploadModelRequest\x1a\x16.drucker.ModelResponse\"\x00(\x01\x12\x44\n\x0bSwitchModel\x12\x1b.drucker.SwitchModelRequest\x1a\x16.drucker.ModelResponse\"\x00\x12R\n\rEvaluateModel\x12\x1d.drucker.EvaluateModelRequest\x1a\x1e.drucker.EvaluateModelResponse\"\x00(\x01\x32\xfb\x0e\n\rDruckerWorker\x12\x46\n\x15Predict_String_String\x12\x14.drucker.StringInput\x1a\x15.drucker.StringOutput\"\x00\x12\x46\n\x14Predict_String_Bytes\x12\x14.drucker.StringInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_String_ArrInt\x12\x14.drucker.StringInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12J\n\x17Predict_String_ArrFloat\x12\x14.drucker.StringInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12L\n\x18Predict_String_ArrString\x12\x14.drucker.StringInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12\x46\n\x14Predict_Bytes_String\x12\x13.drucker.BytesInput\x1a\x15.drucker.StringOutput\"\x00(\x01\x12\x46\n\x13Predict_Bytes_Bytes\x12\x13.drucker.BytesInput\x1a\x14.drucker.BytesOutput\"\x00(\x01\x30\x01\x12\x46\n\x14Predict_Bytes_ArrInt\x12\x13.drucker.BytesInput\x1a\x15.drucker.ArrIntOutput\"\x00(\x01\x12J\n\x16Predict_Bytes_ArrFloat\x12\x13.drucker.BytesInput\x1a\x17.drucker.ArrFloatOutput\"\x00(\x01\x12L\n\x17Predict_Bytes_ArrString\x12\x13.drucker.BytesInput\x1a\x18.drucker.ArrStringOutput\"\x00(\x01\x12\x46\n\x15Predict_ArrInt_String\x12\x14.drucker.ArrIntInput\x1a\x15.drucker.StringOutput\"\x00\x12\x46\n\x14Predict_ArrInt_Bytes\x12\x14.drucker.ArrIntInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_ArrInt_ArrInt\x12\x14.drucker.ArrIntInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12J\n\x17Predict_ArrInt_ArrFloat\x12\x14.drucker.ArrIntInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12L\n\x18Predict_ArrInt_ArrString\x12\x14.drucker.ArrIntInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12J\n\x17Predict_ArrFloat_String\x12\x16.drucker.ArrFloatInput\x1a\x15.drucker.StringOutput\"\x00\x12J\n\x16Predict_ArrFloat_Bytes\x12\x16.drucker.ArrFloatInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12J\n\x17Predict_ArrFloat_ArrInt\x12\x16.drucker.ArrFloatInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12N\n\x19Predict_ArrFloat_ArrFloat\x12\x16.drucker.ArrFloatInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12P\n\x1aPredict_ArrFloat_ArrString\x12\x16.drucker.ArrFloatInput\x1a\x18.drucker.ArrStringOutput\"\x00\x12L\n\x18Predict_ArrString_String\x12\x17.drucker.ArrStringInput\x1a\x15.drucker.StringOutput\"\x00\x12L\n\x17Predict_ArrString_Bytes\x12\x17.drucker.ArrStringInput\x1a\x14.drucker.BytesOutput\"\x00\x30\x01\x12L\n\x18Predict_ArrString_ArrInt\x12\x17.drucker.ArrStringInput\x1a\x15.drucker.ArrIntOutput\"\x00\x12P\n\x1aPredict_ArrString_ArrFloat\x12\x17.drucker.ArrStringInput\x1a\x17.drucker.ArrFloatOutput\"\x00\x12R\n\x1bPredict_ArrString_ArrString\x12\x17.drucker.ArrStringInput\x1a\x18.drucker.ArrStringOutput\"\x00:B\n\x1a\x64rucker_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v2b\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _ENUMVERSIONINFO = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1203,
-  serialized_end=1244,
+  serialized_start=1386,
+  serialized_end=1427,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMVERSIONINFO)
 
@@ -64,6 +64,95 @@ drucker_grpc_proto_version = _descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None, file=DESCRIPTOR)
+
+_HEALTHCHECKRESPONSE_SERVINGSTATUS = _descriptor.EnumDescriptor(
+  name='ServingStatus',
+  full_name='drucker.HealthCheckResponse.ServingStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNKNOWN', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SERVING', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NOT_SERVING', index=2, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=183,
+  serialized_end=241,
+)
+_sym_db.RegisterEnumDescriptor(_HEALTHCHECKRESPONSE_SERVINGSTATUS)
+
+
+_HEALTHCHECKREQUEST = _descriptor.Descriptor(
+  name='HealthCheckRequest',
+  full_name='drucker.HealthCheckRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='service', full_name='drucker.HealthCheckRequest.service', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=60,
+  serialized_end=97,
+)
+
+
+_HEALTHCHECKRESPONSE = _descriptor.Descriptor(
+  name='HealthCheckResponse',
+  full_name='drucker.HealthCheckResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='drucker.HealthCheckResponse.status', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _HEALTHCHECKRESPONSE_SERVINGSTATUS,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=100,
+  serialized_end=241,
+)
 
 
 _SERVICEINFOREQUEST = _descriptor.Descriptor(
@@ -85,8 +174,8 @@ _SERVICEINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=80,
+  serialized_start=243,
+  serialized_end=263,
 )
 
 
@@ -130,8 +219,8 @@ _SERVICEINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=82,
-  serialized_end=174,
+  serialized_start=265,
+  serialized_end=357,
 )
 
 
@@ -168,8 +257,8 @@ _UPLOADMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=176,
-  serialized_end=224,
+  serialized_start=359,
+  serialized_end=407,
 )
 
 
@@ -199,8 +288,8 @@ _SWITCHMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=226,
-  serialized_end=260,
+  serialized_start=409,
+  serialized_end=443,
 )
 
 
@@ -237,8 +326,8 @@ _MODELRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=262,
-  serialized_end=310,
+  serialized_start=445,
+  serialized_end=493,
 )
 
 
@@ -268,8 +357,8 @@ _EVALUATEMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=312,
-  serialized_end=348,
+  serialized_start=495,
+  serialized_end=531,
 )
 
 
@@ -327,8 +416,8 @@ _EVALUATEMODELRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=350,
-  serialized_end=455,
+  serialized_start=533,
+  serialized_end=638,
 )
 
 
@@ -358,8 +447,8 @@ _OPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=457,
-  serialized_end=478,
+  serialized_start=640,
+  serialized_end=661,
 )
 
 
@@ -396,8 +485,8 @@ _STRINGINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=480,
-  serialized_end=541,
+  serialized_start=663,
+  serialized_end=724,
 )
 
 
@@ -434,8 +523,8 @@ _BYTESINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=543,
-  serialized_end=603,
+  serialized_start=726,
+  serialized_end=786,
 )
 
 
@@ -472,8 +561,8 @@ _ARRINTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=605,
-  serialized_end=666,
+  serialized_start=788,
+  serialized_end=849,
 )
 
 
@@ -510,8 +599,8 @@ _ARRFLOATINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=668,
-  serialized_end=731,
+  serialized_start=851,
+  serialized_end=914,
 )
 
 
@@ -548,8 +637,8 @@ _ARRSTRINGINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=733,
-  serialized_end=797,
+  serialized_start=916,
+  serialized_end=980,
 )
 
 
@@ -593,8 +682,8 @@ _STRINGOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=799,
-  serialized_end=877,
+  serialized_start=982,
+  serialized_end=1060,
 )
 
 
@@ -638,8 +727,8 @@ _BYTESOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=879,
-  serialized_end=956,
+  serialized_start=1062,
+  serialized_end=1139,
 )
 
 
@@ -683,8 +772,8 @@ _ARRINTOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=958,
-  serialized_end=1036,
+  serialized_start=1141,
+  serialized_end=1219,
 )
 
 
@@ -728,8 +817,8 @@ _ARRFLOATOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1038,
-  serialized_end=1118,
+  serialized_start=1221,
+  serialized_end=1301,
 )
 
 
@@ -773,10 +862,12 @@ _ARRSTRINGOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1120,
-  serialized_end=1201,
+  serialized_start=1303,
+  serialized_end=1384,
 )
 
+_HEALTHCHECKRESPONSE.fields_by_name['status'].enum_type = _HEALTHCHECKRESPONSE_SERVINGSTATUS
+_HEALTHCHECKRESPONSE_SERVINGSTATUS.containing_type = _HEALTHCHECKRESPONSE
 _STRINGINPUT.fields_by_name['option'].message_type = _OPTION
 _BYTESINPUT.fields_by_name['option'].message_type = _OPTION
 _ARRINTINPUT.fields_by_name['option'].message_type = _OPTION
@@ -787,6 +878,8 @@ _BYTESOUTPUT.fields_by_name['option'].message_type = _OPTION
 _ARRINTOUTPUT.fields_by_name['option'].message_type = _OPTION
 _ARRFLOATOUTPUT.fields_by_name['option'].message_type = _OPTION
 _ARRSTRINGOUTPUT.fields_by_name['option'].message_type = _OPTION
+DESCRIPTOR.message_types_by_name['HealthCheckRequest'] = _HEALTHCHECKREQUEST
+DESCRIPTOR.message_types_by_name['HealthCheckResponse'] = _HEALTHCHECKRESPONSE
 DESCRIPTOR.message_types_by_name['ServiceInfoRequest'] = _SERVICEINFOREQUEST
 DESCRIPTOR.message_types_by_name['ServiceInfoResponse'] = _SERVICEINFORESPONSE
 DESCRIPTOR.message_types_by_name['UploadModelRequest'] = _UPLOADMODELREQUEST
@@ -808,6 +901,20 @@ DESCRIPTOR.message_types_by_name['ArrStringOutput'] = _ARRSTRINGOUTPUT
 DESCRIPTOR.enum_types_by_name['EnumVersionInfo'] = _ENUMVERSIONINFO
 DESCRIPTOR.extensions_by_name['drucker_grpc_proto_version'] = drucker_grpc_proto_version
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), dict(
+  DESCRIPTOR = _HEALTHCHECKREQUEST,
+  __module__ = 'drucker_pb2'
+  # @@protoc_insertion_point(class_scope:drucker.HealthCheckRequest)
+  ))
+_sym_db.RegisterMessage(HealthCheckRequest)
+
+HealthCheckResponse = _reflection.GeneratedProtocolMessageType('HealthCheckResponse', (_message.Message,), dict(
+  DESCRIPTOR = _HEALTHCHECKRESPONSE,
+  __module__ = 'drucker_pb2'
+  # @@protoc_insertion_point(class_scope:drucker.HealthCheckResponse)
+  ))
+_sym_db.RegisterMessage(HealthCheckResponse)
 
 ServiceInfoRequest = _reflection.GeneratedProtocolMessageType('ServiceInfoRequest', (_message.Message,), dict(
   DESCRIPTOR = _SERVICEINFOREQUEST,
@@ -940,14 +1047,38 @@ google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(drucker_gr
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\202\265\030\002v2'))
 
+_HEALTH = _descriptor.ServiceDescriptor(
+  name='Health',
+  full_name='drucker.Health',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=1429,
+  serialized_end=1505,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Check',
+    full_name='drucker.Health.Check',
+    index=0,
+    containing_service=None,
+    input_type=_HEALTHCHECKREQUEST,
+    output_type=_HEALTHCHECKRESPONSE,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_HEALTH)
+
+DESCRIPTOR.services_by_name['Health'] = _HEALTH
+
+
 _DRUCKERDASHBOARD = _descriptor.ServiceDescriptor(
   name='DruckerDashboard',
   full_name='drucker.DruckerDashboard',
   file=DESCRIPTOR,
-  index=0,
+  index=1,
   options=None,
-  serialized_start=1247,
-  serialized_end=1567,
+  serialized_start=1508,
+  serialized_end=1828,
   methods=[
   _descriptor.MethodDescriptor(
     name='ServiceInfo',
@@ -995,10 +1126,10 @@ _DRUCKERWORKER = _descriptor.ServiceDescriptor(
   name='DruckerWorker',
   full_name='drucker.DruckerWorker',
   file=DESCRIPTOR,
-  index=1,
+  index=2,
   options=None,
-  serialized_start=1570,
-  serialized_end=3485,
+  serialized_start=1831,
+  serialized_end=3746,
   methods=[
   _descriptor.MethodDescriptor(
     name='Predict_String_String',

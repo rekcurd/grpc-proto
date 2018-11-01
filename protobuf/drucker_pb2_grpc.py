@@ -4,8 +4,50 @@ import grpc
 import drucker_pb2 as drucker__pb2
 
 
+class HealthStub(object):
+  """gRPC official health check service.
+  """
+
+  def __init__(self, channel):
+    """Constructor.
+
+    Args:
+      channel: A grpc.Channel.
+    """
+    self.Check = channel.unary_unary(
+        '/drucker.Health/Check',
+        request_serializer=drucker__pb2.HealthCheckRequest.SerializeToString,
+        response_deserializer=drucker__pb2.HealthCheckResponse.FromString,
+        )
+
+
+class HealthServicer(object):
+  """gRPC official health check service.
+  """
+
+  def Check(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+
+def add_HealthServicer_to_server(servicer, server):
+  rpc_method_handlers = {
+      'Check': grpc.unary_unary_rpc_method_handler(
+          servicer.Check,
+          request_deserializer=drucker__pb2.HealthCheckRequest.FromString,
+          response_serializer=drucker__pb2.HealthCheckResponse.SerializeToString,
+      ),
+  }
+  generic_handler = grpc.method_handlers_generic_handler(
+      'drucker.Health', rpc_method_handlers)
+  server.add_generic_rpc_handlers((generic_handler,))
+
+
 class DruckerDashboardStub(object):
-  """DruckerDashboard: Easy to mange your ML model.
+  """Drucker Dashboard service.
   """
 
   def __init__(self, channel):
@@ -37,7 +79,7 @@ class DruckerDashboardStub(object):
 
 
 class DruckerDashboardServicer(object):
-  """DruckerDashboard: Easy to mange your ML model.
+  """Drucker Dashboard service.
   """
 
   def ServiceInfo(self, request, context):
@@ -98,7 +140,7 @@ def add_DruckerDashboardServicer_to_server(servicer, server):
 
 
 class DruckerWorkerStub(object):
-  """DruckerWorker: Easy to perform your ML service.
+  """Drucker connecting service.
   """
 
   def __init__(self, channel):
@@ -235,7 +277,7 @@ class DruckerWorkerStub(object):
 
 
 class DruckerWorkerServicer(object):
-  """DruckerWorker: Easy to perform your ML service.
+  """Drucker connecting service.
   """
 
   def Predict_String_String(self, request, context):

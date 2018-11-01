@@ -11,6 +11,28 @@ extend google.protobuf.FileOptions {
 }
 option (drucker_grpc_proto_version) = "v2";
 
+
+// gRPC official health check request.
+message HealthCheckRequest {
+    string service = 1;
+}
+
+// gRPC official health check response.
+message HealthCheckResponse {
+    enum ServingStatus {
+        UNKNOWN = 0;
+        SERVING = 1;
+        NOT_SERVING = 2;
+    }
+    ServingStatus status = 1;
+}
+
+// gRPC official health check service.
+service Health {
+    rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+// Drucker version info.
 enum EnumVersionInfo {
     // Version info. The largest number is the latest version.
     v0 = 0;
@@ -18,7 +40,7 @@ enum EnumVersionInfo {
     v2 = 2;
 }
 
-// DruckerDashboard: Easy to mange your ML model.
+// Drucker Dashboard service.
 service DruckerDashboard {
     // Get Service Info.
     rpc ServiceInfo (ServiceInfoRequest) returns (ServiceInfoResponse) {}
@@ -33,7 +55,7 @@ service DruckerDashboard {
     rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
 }
 
-// DruckerWorker: Easy to perform your ML service.
+// Drucker connecting service.
 service DruckerWorker {
     // Input string, output string.
     rpc Predict_String_String (StringInput) returns (StringOutput) {}

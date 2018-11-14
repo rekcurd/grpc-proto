@@ -156,11 +156,6 @@ message IO {
     }
 }
 
-message Label {
-    IO io = 1;
-    repeated float score = 2;
-}
-
 // Request of ServiceInfo.
 message ServiceInfoRequest {}
 
@@ -220,9 +215,11 @@ message EvaluationResultResponse {
     EvaluationMetrics metrics = 1;
 
     message Detail {
-        IO data = 1;
-        bool is_correct = 2;
-        Label label = 3;
+        IO input = 1;
+        IO label = 2;
+        IO output = 3;
+        repeated float score = 4;
+        bool is_correct = 5;
     }
 
     repeated Detail detail = 2;

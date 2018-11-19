@@ -76,6 +76,11 @@ class DruckerDashboardStub(object):
         request_serializer=drucker__pb2.EvaluateModelRequest.SerializeToString,
         response_deserializer=drucker__pb2.EvaluateModelResponse.FromString,
         )
+    self.EvaluationResult = channel.unary_stream(
+        '/drucker.DruckerDashboard/EvaluationResult',
+        request_serializer=drucker__pb2.EvaluationResultRequest.SerializeToString,
+        response_deserializer=drucker__pb2.EvaluationResultResponse.FromString,
+        )
 
 
 class DruckerDashboardServicer(object):
@@ -110,6 +115,13 @@ class DruckerDashboardServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def EvaluationResult(self, request, context):
+    """Get detailed result of EvaluateModel
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_DruckerDashboardServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -132,6 +144,11 @@ def add_DruckerDashboardServicer_to_server(servicer, server):
           servicer.EvaluateModel,
           request_deserializer=drucker__pb2.EvaluateModelRequest.FromString,
           response_serializer=drucker__pb2.EvaluateModelResponse.SerializeToString,
+      ),
+      'EvaluationResult': grpc.unary_stream_rpc_method_handler(
+          servicer.EvaluationResult,
+          request_deserializer=drucker__pb2.EvaluationResultRequest.FromString,
+          response_serializer=drucker__pb2.EvaluationResultResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

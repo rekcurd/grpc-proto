@@ -53,6 +53,9 @@ service DruckerDashboard {
 
     // Evaluate the accuracy of your ML model.
     rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
+
+    // Get detailed result of EvaluateModel
+    rpc EvaluationResult (EvaluationResultRequest) returns (stream EvaluationResultResponse) {}
 }
 
 // Drucker connecting service.
@@ -137,6 +140,22 @@ service DruckerWorker {
     rpc Predict_ArrString_ArrString (ArrStringInput) returns (ArrStringOutput) {}
 }
 
+message ArrString {
+    repeated string val = 1;
+}
+message Tensor {
+    repeated int32 shape = 1;
+    repeated double val = 2;
+}
+
+// Supported type of Input/Output data
+message IO {
+    oneof io_oneof {
+        Tensor tensor = 1;
+        ArrString str = 2;
+    }
+}
+
 // Request of ServiceInfo.
 message ServiceInfoRequest {}
 
@@ -167,15 +186,43 @@ message ModelResponse {
 // Request of EvaluateModel.
 message EvaluateModelRequest {
     bytes data = 1;
+    string data_path = 2;
 }
 
-// Response of EvaluateModel.
-message EvaluateModelResponse {
+message EvaluationMetrics {
     int32 num = 1;
     float accuracy = 2;
     repeated float precision = 3;
     repeated float recall = 4;
     repeated float fvalue = 5;
+
+    // additional metrics
+    map<string, float> option = 6;
+}
+
+// Response of EvaluateModel.
+message EvaluateModelResponse {
+    EvaluationMetrics metrics = 1;
+}
+
+// Request of EvaluationResult.
+message EvaluationResultRequest {
+    string data_path = 1;
+}
+
+// Response of EvaluationResult.
+message EvaluationResultResponse {
+    EvaluationMetrics metrics = 1;
+
+    message Detail {
+        IO input = 1;
+        IO label = 2;
+        IO output = 3;
+        repeated float score = 4;
+        bool is_correct = 5;
+    }
+
+    repeated Detail detail = 2;
 }
 
 // Option (json format).

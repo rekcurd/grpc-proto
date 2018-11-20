@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.1](https://github.com/drucker/drucker-grpc-proto/tree/v0.4.1) (2018-11-19)
+[Full Changelog](https://github.com/drucker/drucker-grpc-proto/compare/v0.4.0...v0.4.1)
+
+**Merged pull requests:**
+
+- add each test result to EvaluateModelResponse [\#10](https://github.com/drucker/drucker-grpc-proto/pull/10) ([yuki-mt](https://github.com/yuki-mt))
+
 ## [v0.4.0](https://github.com/drucker/drucker-grpc-proto/tree/v0.4.0) (2018-11-01)
 [Full Changelog](https://github.com/drucker/drucker-grpc-proto/compare/v0.3.4...v0.4.0)
 

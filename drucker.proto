@@ -51,8 +51,11 @@ service DruckerDashboard {
     // Switch your ML model to run.
     rpc SwitchModel (SwitchModelRequest) returns (ModelResponse) {}
 
+    // Upload data for evaluation
+    rpc UploadEvaluationData (stream UploadEvaluationDataRequest) returns (UploadEvaluationDataResponse) {}
+
     // Evaluate the accuracy of your ML model.
-    rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
+    rpc EvaluateModel (EvaluateModelRequest) returns (EvaluateModelResponse) {}
 
     // Get detailed result of EvaluateModel
     rpc EvaluationResult (EvaluationResultRequest) returns (stream EvaluationResultResponse) {}
@@ -183,10 +186,20 @@ message ModelResponse {
     string message = 2;
 }
 
-// Request of EvaluateModel.
-message EvaluateModelRequest {
+message UploadEvaluationDataRequest {
     bytes data = 1;
     string data_path = 2;
+}
+
+message UploadEvaluationDataResponse {
+    int32 status = 1;
+    string message = 2;
+}
+
+// Request of EvaluateModel.
+message EvaluateModelRequest {
+    string data_path = 1;
+    string result_path = 2;
 }
 
 message EvaluationMetrics {

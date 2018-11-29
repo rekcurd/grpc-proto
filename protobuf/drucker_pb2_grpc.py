@@ -71,7 +71,12 @@ class DruckerDashboardStub(object):
         request_serializer=drucker__pb2.SwitchModelRequest.SerializeToString,
         response_deserializer=drucker__pb2.ModelResponse.FromString,
         )
-    self.EvaluateModel = channel.stream_unary(
+    self.UploadEvaluationData = channel.stream_unary(
+        '/drucker.DruckerDashboard/UploadEvaluationData',
+        request_serializer=drucker__pb2.UploadEvaluationDataRequest.SerializeToString,
+        response_deserializer=drucker__pb2.UploadEvaluationDataResponse.FromString,
+        )
+    self.EvaluateModel = channel.unary_unary(
         '/drucker.DruckerDashboard/EvaluateModel',
         request_serializer=drucker__pb2.EvaluateModelRequest.SerializeToString,
         response_deserializer=drucker__pb2.EvaluateModelResponse.FromString,
@@ -108,7 +113,14 @@ class DruckerDashboardServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def EvaluateModel(self, request_iterator, context):
+  def UploadEvaluationData(self, request_iterator, context):
+    """Upload data for evaluation
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def EvaluateModel(self, request, context):
     """Evaluate the accuracy of your ML model.
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -140,7 +152,12 @@ def add_DruckerDashboardServicer_to_server(servicer, server):
           request_deserializer=drucker__pb2.SwitchModelRequest.FromString,
           response_serializer=drucker__pb2.ModelResponse.SerializeToString,
       ),
-      'EvaluateModel': grpc.stream_unary_rpc_method_handler(
+      'UploadEvaluationData': grpc.stream_unary_rpc_method_handler(
+          servicer.UploadEvaluationData,
+          request_deserializer=drucker__pb2.UploadEvaluationDataRequest.FromString,
+          response_serializer=drucker__pb2.UploadEvaluationDataResponse.SerializeToString,
+      ),
+      'EvaluateModel': grpc.unary_unary_rpc_method_handler(
           servicer.EvaluateModel,
           request_deserializer=drucker__pb2.EvaluateModelRequest.FromString,
           response_serializer=drucker__pb2.EvaluateModelResponse.SerializeToString,

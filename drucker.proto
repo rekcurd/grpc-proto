@@ -198,8 +198,10 @@ message UploadEvaluationDataResponse {
 
 // Request of EvaluateModel.
 message EvaluateModelRequest {
-    string data_path = 1;
-    string result_path = 2;
+    reserved 1;
+    reserved "data";
+    string data_path = 2;
+    string result_path = 3;
 }
 
 message EvaluationMetrics {

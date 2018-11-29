@@ -55,7 +55,8 @@ service DruckerDashboard {
     rpc UploadEvaluationData (stream UploadEvaluationDataRequest) returns (UploadEvaluationDataResponse) {}
 
     // Evaluate the accuracy of your ML model.
-    rpc EvaluateModel (EvaluateModelRequest) returns (EvaluateModelResponse) {}
+    // Deprecated: `stream` is deprecated. upload evaluation data by using UploadEvaluationData
+    rpc EvaluateModel (stream EvaluateModelRequest) returns (EvaluateModelResponse) {}
 
     // Get detailed result of EvaluateModel
     rpc EvaluationResult (EvaluationResultRequest) returns (stream EvaluationResultResponse) {}
@@ -198,8 +199,9 @@ message UploadEvaluationDataResponse {
 
 // Request of EvaluateModel.
 message EvaluateModelRequest {
-    reserved 1;
-    reserved "data";
+    // Deprecated: should use data in UploadEvaluationDataRequest
+    bytes data = 1 [deprecated=true];
+
     string data_path = 2;
     string result_path = 3;
 }

@@ -71,6 +71,11 @@ class DruckerDashboardStub(object):
         request_serializer=drucker__pb2.SwitchModelRequest.SerializeToString,
         response_deserializer=drucker__pb2.ModelResponse.FromString,
         )
+    self.UploadEvaluationData = channel.stream_unary(
+        '/drucker.DruckerDashboard/UploadEvaluationData',
+        request_serializer=drucker__pb2.UploadEvaluationDataRequest.SerializeToString,
+        response_deserializer=drucker__pb2.UploadEvaluationDataResponse.FromString,
+        )
     self.EvaluateModel = channel.stream_unary(
         '/drucker.DruckerDashboard/EvaluateModel',
         request_serializer=drucker__pb2.EvaluateModelRequest.SerializeToString,
@@ -108,8 +113,16 @@ class DruckerDashboardServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def UploadEvaluationData(self, request_iterator, context):
+    """Upload data for evaluation
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def EvaluateModel(self, request_iterator, context):
     """Evaluate the accuracy of your ML model.
+    Deprecated: `stream` is deprecated. upload evaluation data by using UploadEvaluationData
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -139,6 +152,11 @@ def add_DruckerDashboardServicer_to_server(servicer, server):
           servicer.SwitchModel,
           request_deserializer=drucker__pb2.SwitchModelRequest.FromString,
           response_serializer=drucker__pb2.ModelResponse.SerializeToString,
+      ),
+      'UploadEvaluationData': grpc.stream_unary_rpc_method_handler(
+          servicer.UploadEvaluationData,
+          request_deserializer=drucker__pb2.UploadEvaluationDataRequest.FromString,
+          response_serializer=drucker__pb2.UploadEvaluationDataResponse.SerializeToString,
       ),
       'EvaluateModel': grpc.stream_unary_rpc_method_handler(
           servicer.EvaluateModel,

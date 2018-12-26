@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.3](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.3) (2018-12-21)
+[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.2...v0.4.3)
+
+**Merged pull requests:**
+
+- separate upload test data and evaluate method [\#12](https://github.com/rekcurd/drucker-grpc-proto/pull/12) ([yuki-mt](https://github.com/yuki-mt))
+
 ## [v0.4.2](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.2) (2018-11-20)
 [Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.1...v0.4.2)
 

@@ -225,6 +225,7 @@ message EvaluateModelResponse {
 // Request of EvaluationResult.
 message EvaluationResultRequest {
     string data_path = 1;
+    string result_path = 2;
 }
 
 // Response of EvaluationResult.

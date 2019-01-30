@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.5](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.5) (2019-01-22)
+[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.4...v0.4.5)
+
+**Merged pull requests:**
+
+- Update requirements.txt [\#14](https://github.com/rekcurd/drucker-grpc-proto/pull/14) ([keigohtr](https://github.com/keigohtr))
+
 ## [v0.4.4](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.4) (2019-01-09)
 [Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.3...v0.4.4)
 

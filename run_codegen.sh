@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-echo "[drucker-grpc-proto run_codegen.sh START]"
+echo "[grpc-proto run_codegen.sh START]"
 
 cd `dirname $0`
 

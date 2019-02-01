@@ -1,8 +1,8 @@
-# drucker-grpc-proto
-Drucker grpc protocol.
+# grpc-proto
+Rekcurd grpc protocol.
 
 ## Parent Project
-https://github.com/drucker/drucker-parent
+https://github.com/rekcurd/community
 
 ## Input/Output
 TODO: Generate automatically from `drucker.proto`

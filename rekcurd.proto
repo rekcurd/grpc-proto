@@ -1,15 +1,15 @@
-// Template for Drucker
+// Template for Rekcurd
 // DO NOT EDIT!
 
 syntax = "proto3";
 
-package drucker;
+package rekcurd;
 
 import "google/protobuf/descriptor.proto";
 extend google.protobuf.FileOptions {
-    string drucker_grpc_proto_version = 50000;
+    string rekcurd_grpc_proto_version = 50000;
 }
-option (drucker_grpc_proto_version) = "v2";
+option (rekcurd_grpc_proto_version) = "v2";
 
 
 // gRPC official health check request.
@@ -32,7 +32,7 @@ service Health {
     rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
 }
 
-// Drucker version info.
+// Rekcurd version info.
 enum EnumVersionInfo {
     // Version info. The largest number is the latest version.
     v0 = 0;
@@ -40,8 +40,8 @@ enum EnumVersionInfo {
     v2 = 2;
 }
 
-// Drucker Dashboard service.
-service DruckerDashboard {
+// Rekcurd Dashboard service.
+service RekcurdDashboard {
     // Get Service Info.
     rpc ServiceInfo (ServiceInfoRequest) returns (ServiceInfoResponse) {}
 
@@ -62,8 +62,8 @@ service DruckerDashboard {
     rpc EvaluationResult (EvaluationResultRequest) returns (stream EvaluationResultResponse) {}
 }
 
-// Drucker connecting service.
-service DruckerWorker {
+// Rekcurd worker service.
+service RekcurdWorker {
     // Input string, output string.
     rpc Predict_String_String (StringInput) returns (StringOutput) {}
 

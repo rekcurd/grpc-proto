@@ -5,7 +5,7 @@ Rekcurd grpc protocol.
 https://github.com/rekcurd/community
 
 ## Input/Output
-TODO: Generate automatically from `drucker.proto`
+TODO: Generate automatically from `rekcurd.proto`
 
 *V* is the length of feature vector. *M* is the number of classes. If your algorithm is a binary classifier, you set *M* to 1. If your algorithm is a multi-class classifier, you set *M* to the number of classes.
 

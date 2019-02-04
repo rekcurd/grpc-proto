@@ -1,68 +1,77 @@
 # Change Log
 
-## [v0.4.5](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.5) (2019-01-22)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.4...v0.4.5)
+## [Unreleased](https://github.com/rekcurd/grpc-proto/tree/HEAD)
+
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.5...HEAD)
 
 **Merged pull requests:**
 
-- Update requirements.txt [\#14](https://github.com/rekcurd/drucker-grpc-proto/pull/14) ([keigohtr](https://github.com/keigohtr))
+- Replace from `drucker` to `rekcurd` [\#16](https://github.com/rekcurd/grpc-proto/pull/16) ([keigohtr](https://github.com/keigohtr))
+- Rename repository link [\#15](https://github.com/rekcurd/grpc-proto/pull/15) ([keigohtr](https://github.com/keigohtr))
 
-## [v0.4.4](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.4) (2019-01-09)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.3...v0.4.4)
-
-**Merged pull requests:**
-
-- add result\_path to EvaluationResultRequest [\#13](https://github.com/rekcurd/drucker-grpc-proto/pull/13) ([yuki-mt](https://github.com/yuki-mt))
-
-## [v0.4.3](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.3) (2018-12-21)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.2...v0.4.3)
+## [v0.4.5](https://github.com/rekcurd/grpc-proto/tree/v0.4.5) (2019-01-22)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.4...v0.4.5)
 
 **Merged pull requests:**
 
-- separate upload test data and evaluate method [\#12](https://github.com/rekcurd/drucker-grpc-proto/pull/12) ([yuki-mt](https://github.com/yuki-mt))
+- Update requirements.txt [\#14](https://github.com/rekcurd/grpc-proto/pull/14) ([keigohtr](https://github.com/keigohtr))
 
-## [v0.4.2](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.2) (2018-11-20)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.1...v0.4.2)
-
-## [v0.4.1](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.1) (2018-11-19)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.4.0...v0.4.1)
+## [v0.4.4](https://github.com/rekcurd/grpc-proto/tree/v0.4.4) (2019-01-09)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.3...v0.4.4)
 
 **Merged pull requests:**
 
-- add each test result to EvaluateModelResponse [\#10](https://github.com/rekcurd/drucker-grpc-proto/pull/10) ([yuki-mt](https://github.com/yuki-mt))
+- add result\_path to EvaluationResultRequest [\#13](https://github.com/rekcurd/grpc-proto/pull/13) ([yuki-mt](https://github.com/yuki-mt))
 
-## [v0.4.0](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.4.0) (2018-11-01)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.3.4...v0.4.0)
-
-**Merged pull requests:**
-
-- Add compiled files [\#9](https://github.com/rekcurd/drucker-grpc-proto/pull/9) ([keigohtr](https://github.com/keigohtr))
-- Add gRPC official health check proto. [\#7](https://github.com/rekcurd/drucker-grpc-proto/pull/7) ([keigohtr](https://github.com/keigohtr))
-
-## [v0.3.4](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.3.4) (2018-08-29)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.3.3...v0.3.4)
-
-## [v0.3.3](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.3.3) (2018-08-22)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.3.2...v0.3.3)
-
-## [v0.3.2](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.3.2) (2018-08-15)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.3.1...v0.3.2)
-
-## [v0.3.1](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.3.1) (2018-08-09)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.3.0...v0.3.1)
+## [v0.4.3](https://github.com/rekcurd/grpc-proto/tree/v0.4.3) (2018-12-21)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.2...v0.4.3)
 
 **Merged pull requests:**
 
-- \[Hotfix\] Change code generator [\#3](https://github.com/rekcurd/drucker-grpc-proto/pull/3) ([keigohtr](https://github.com/keigohtr))
+- separate upload test data and evaluate method [\#12](https://github.com/rekcurd/grpc-proto/pull/12) ([yuki-mt](https://github.com/yuki-mt))
 
-## [v0.3.0](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.3.0) (2018-08-07)
-[Full Changelog](https://github.com/rekcurd/drucker-grpc-proto/compare/v0.2.0...v0.3.0)
+## [v0.4.2](https://github.com/rekcurd/grpc-proto/tree/v0.4.2) (2018-11-20)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.1...v0.4.2)
+
+## [v0.4.1](https://github.com/rekcurd/grpc-proto/tree/v0.4.1) (2018-11-19)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.0...v0.4.1)
 
 **Merged pull requests:**
 
-- Add version info [\#1](https://github.com/rekcurd/drucker-grpc-proto/pull/1) ([keigohtr](https://github.com/keigohtr))
+- add each test result to EvaluateModelResponse [\#10](https://github.com/rekcurd/grpc-proto/pull/10) ([yuki-mt](https://github.com/yuki-mt))
 
-## [v0.2.0](https://github.com/rekcurd/drucker-grpc-proto/tree/v0.2.0) (2018-07-17)
+## [v0.4.0](https://github.com/rekcurd/grpc-proto/tree/v0.4.0) (2018-11-01)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.3.4...v0.4.0)
+
+**Merged pull requests:**
+
+- Add compiled files [\#9](https://github.com/rekcurd/grpc-proto/pull/9) ([keigohtr](https://github.com/keigohtr))
+- Add gRPC official health check proto. [\#7](https://github.com/rekcurd/grpc-proto/pull/7) ([keigohtr](https://github.com/keigohtr))
+
+## [v0.3.4](https://github.com/rekcurd/grpc-proto/tree/v0.3.4) (2018-08-29)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.3.3...v0.3.4)
+
+## [v0.3.3](https://github.com/rekcurd/grpc-proto/tree/v0.3.3) (2018-08-22)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.3.2...v0.3.3)
+
+## [v0.3.2](https://github.com/rekcurd/grpc-proto/tree/v0.3.2) (2018-08-15)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.3.1...v0.3.2)
+
+## [v0.3.1](https://github.com/rekcurd/grpc-proto/tree/v0.3.1) (2018-08-09)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.3.0...v0.3.1)
+
+**Merged pull requests:**
+
+- \[Hotfix\] Change code generator [\#3](https://github.com/rekcurd/grpc-proto/pull/3) ([keigohtr](https://github.com/keigohtr))
+
+## [v0.3.0](https://github.com/rekcurd/grpc-proto/tree/v0.3.0) (2018-08-07)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.2.0...v0.3.0)
+
+**Merged pull requests:**
+
+- Add version info [\#1](https://github.com/rekcurd/grpc-proto/pull/1) ([keigohtr](https://github.com/keigohtr))
+
+## [v0.2.0](https://github.com/rekcurd/grpc-proto/tree/v0.2.0) (2018-07-17)
 
 
 \* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*

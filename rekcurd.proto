@@ -215,6 +215,8 @@ message EvaluationMetrics {
 
     // additional metrics
     map<string, float> option = 6;
+
+    repeated IO label = 7;
 }
 
 // Response of EvaluateModel.

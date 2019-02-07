@@ -8,7 +8,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -21,7 +20,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='rekcurd.proto',
   package='rekcurd',
   syntax='proto3',
-  serialized_pb=_b('\n\rrekcurd.proto\x12\x07rekcurd\x1a google/protobuf/descriptor.proto\"%\n\x12HealthCheckRequest\x12\x0f\n\x07service\x18\x01 \x01(\t\"\x8d\x01\n\x13HealthCheckResponse\x12:\n\x06status\x18\x01 \x01(\x0e\x32*.rekcurd.HealthCheckResponse.ServingStatus\":\n\rServingStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07SERVING\x10\x01\x12\x0f\n\x0bNOT_SERVING\x10\x02\"\x18\n\tArrString\x12\x0b\n\x03val\x18\x01 \x03(\t\"$\n\x06Tensor\x12\r\n\x05shape\x18\x01 \x03(\x05\x12\x0b\n\x03val\x18\x02 \x03(\x01\"V\n\x02IO\x12!\n\x06tensor\x18\x01 \x01(\x0b\x32\x0f.rekcurd.TensorH\x00\x12!\n\x03str\x18\x02 \x01(\x0b\x32\x12.rekcurd.ArrStringH\x00\x42\n\n\x08io_oneof\"\x14\n\x12ServiceInfoRequest\"\\\n\x13ServiceInfoResponse\x12\x18\n\x10\x61pplication_name\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x15\n\rservice_level\x18\x03 \x01(\t\"0\n\x12UploadModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\"\n\x12SwitchModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"0\n\rModelResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\">\n\x1bUploadEvaluationDataRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x11\n\tdata_path\x18\x02 \x01(\t\"?\n\x1cUploadEvaluationDataResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"P\n\x14\x45valuateModelRequest\x12\x10\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x42\x02\x18\x01\x12\x11\n\tdata_path\x18\x02 \x01(\t\x12\x13\n\x0bresult_path\x18\x03 \x01(\t\"\xcc\x01\n\x11\x45valuationMetrics\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\x12\x36\n\x06option\x18\x06 \x03(\x0b\x32&.rekcurd.EvaluationMetrics.OptionEntry\x1a-\n\x0bOptionEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\"D\n\x15\x45valuateModelResponse\x12+\n\x07metrics\x18\x01 \x01(\x0b\x32\x1a.rekcurd.EvaluationMetrics\"A\n\x17\x45valuationResultRequest\x12\x11\n\tdata_path\x18\x01 \x01(\t\x12\x13\n\x0bresult_path\x18\x02 \x01(\t\"\x84\x02\n\x18\x45valuationResultResponse\x12+\n\x07metrics\x18\x01 \x01(\x0b\x32\x1a.rekcurd.EvaluationMetrics\x12\x38\n\x06\x64\x65tail\x18\x02 \x03(\x0b\x32(.rekcurd.EvaluationResultResponse.Detail\x1a\x80\x01\n\x06\x44\x65tail\x12\x1a\n\x05input\x18\x01 \x01(\x0b\x32\x0b.rekcurd.IO\x12\x1a\n\x05label\x18\x02 \x01(\x0b\x32\x0b.rekcurd.IO\x12\x1b\n\x06output\x18\x03 \x01(\x0b\x32\x0b.rekcurd.IO\x12\r\n\x05score\x18\x04 \x03(\x02\x12\x12\n\nis_correct\x18\x05 \x01(\x08\"\x15\n\x06Option\x12\x0b\n\x03val\x18\x01 \x01(\t\"=\n\x0bStringInput\x12\r\n\x05input\x18\x01 \x01(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"<\n\nBytesInput\x12\r\n\x05input\x18\x01 \x01(\x0c\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"=\n\x0b\x41rrIntInput\x12\r\n\x05input\x18\x01 \x03(\x05\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"?\n\rArrFloatInput\x12\r\n\x05input\x18\x01 \x03(\x02\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"@\n\x0e\x41rrStringInput\x12\r\n\x05input\x18\x01 \x03(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"N\n\x0cStringOutput\x12\x0e\n\x06output\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"M\n\x0b\x42ytesOutput\x12\x0e\n\x06output\x18\x01 \x01(\x0c\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"N\n\x0c\x41rrIntOutput\x12\x0e\n\x06output\x18\x01 \x03(\x05\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"P\n\x0e\x41rrFloatOutput\x12\x0e\n\x06output\x18\x01 \x03(\x02\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"Q\n\x0f\x41rrStringOutput\x12\x0e\n\x06output\x18\x01 \x03(\t\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option*)\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x32L\n\x06Health\x12\x42\n\x05\x43heck\x12\x1b.rekcurd.HealthCheckRequest\x1a\x1c.rekcurd.HealthCheckResponse2\x86\x04\n\x10RekcurdDashboard\x12J\n\x0bServiceInfo\x12\x1b.rekcurd.ServiceInfoRequest\x1a\x1c.rekcurd.ServiceInfoResponse\"\x00\x12\x46\n\x0bUploadModel\x12\x1b.rekcurd.UploadModelRequest\x1a\x16.rekcurd.ModelResponse\"\x00(\x01\x12\x44\n\x0bSwitchModel\x12\x1b.rekcurd.SwitchModelRequest\x1a\x16.rekcurd.ModelResponse\"\x00\x12g\n\x14UploadEvaluationData\x12$.rekcurd.UploadEvaluationDataRequest\x1a%.rekcurd.UploadEvaluationDataResponse\"\x00(\x01\x12R\n\rEvaluateModel\x12\x1d.rekcurd.EvaluateModelRequest\x1a\x1e.rekcurd.EvaluateModelResponse\"\x00(\x01\x12[\n\x10\x45valuationResult\x12 .rekcurd.EvaluationResultRequest\x1a!.rekcurd.EvaluationResultResponse\"\x00\x30\x01\x32\xfb\x0e\n\rRekcurdWorker\x12\x46\n\x15Predict_String_String\x12\x14.rekcurd.StringInput\x1a\x15.rekcurd.StringOutput\"\x00\x12\x46\n\x14Predict_String_Bytes\x12\x14.rekcurd.StringInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_String_ArrInt\x12\x14.rekcurd.StringInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12J\n\x17Predict_String_ArrFloat\x12\x14.rekcurd.StringInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12L\n\x18Predict_String_ArrString\x12\x14.rekcurd.StringInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12\x46\n\x14Predict_Bytes_String\x12\x13.rekcurd.BytesInput\x1a\x15.rekcurd.StringOutput\"\x00(\x01\x12\x46\n\x13Predict_Bytes_Bytes\x12\x13.rekcurd.BytesInput\x1a\x14.rekcurd.BytesOutput\"\x00(\x01\x30\x01\x12\x46\n\x14Predict_Bytes_ArrInt\x12\x13.rekcurd.BytesInput\x1a\x15.rekcurd.ArrIntOutput\"\x00(\x01\x12J\n\x16Predict_Bytes_ArrFloat\x12\x13.rekcurd.BytesInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00(\x01\x12L\n\x17Predict_Bytes_ArrString\x12\x13.rekcurd.BytesInput\x1a\x18.rekcurd.ArrStringOutput\"\x00(\x01\x12\x46\n\x15Predict_ArrInt_String\x12\x14.rekcurd.ArrIntInput\x1a\x15.rekcurd.StringOutput\"\x00\x12\x46\n\x14Predict_ArrInt_Bytes\x12\x14.rekcurd.ArrIntInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_ArrInt_ArrInt\x12\x14.rekcurd.ArrIntInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12J\n\x17Predict_ArrInt_ArrFloat\x12\x14.rekcurd.ArrIntInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12L\n\x18Predict_ArrInt_ArrString\x12\x14.rekcurd.ArrIntInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12J\n\x17Predict_ArrFloat_String\x12\x16.rekcurd.ArrFloatInput\x1a\x15.rekcurd.StringOutput\"\x00\x12J\n\x16Predict_ArrFloat_Bytes\x12\x16.rekcurd.ArrFloatInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12J\n\x17Predict_ArrFloat_ArrInt\x12\x16.rekcurd.ArrFloatInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12N\n\x19Predict_ArrFloat_ArrFloat\x12\x16.rekcurd.ArrFloatInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12P\n\x1aPredict_ArrFloat_ArrString\x12\x16.rekcurd.ArrFloatInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12L\n\x18Predict_ArrString_String\x12\x17.rekcurd.ArrStringInput\x1a\x15.rekcurd.StringOutput\"\x00\x12L\n\x17Predict_ArrString_Bytes\x12\x17.rekcurd.ArrStringInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12L\n\x18Predict_ArrString_ArrInt\x12\x17.rekcurd.ArrStringInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12P\n\x1aPredict_ArrString_ArrFloat\x12\x17.rekcurd.ArrStringInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12R\n\x1bPredict_ArrString_ArrString\x12\x17.rekcurd.ArrStringInput\x1a\x18.rekcurd.ArrStringOutput\"\x00:B\n\x1arekcurd_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v2b\x06proto3')
+  serialized_options=_b('\202\265\030\002v2'),
+  serialized_pb=_b('\n\rrekcurd.proto\x12\x07rekcurd\x1a google/protobuf/descriptor.proto\"%\n\x12HealthCheckRequest\x12\x0f\n\x07service\x18\x01 \x01(\t\"\x8d\x01\n\x13HealthCheckResponse\x12:\n\x06status\x18\x01 \x01(\x0e\x32*.rekcurd.HealthCheckResponse.ServingStatus\":\n\rServingStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07SERVING\x10\x01\x12\x0f\n\x0bNOT_SERVING\x10\x02\"\x18\n\tArrString\x12\x0b\n\x03val\x18\x01 \x03(\t\"$\n\x06Tensor\x12\r\n\x05shape\x18\x01 \x03(\x05\x12\x0b\n\x03val\x18\x02 \x03(\x01\"V\n\x02IO\x12!\n\x06tensor\x18\x01 \x01(\x0b\x32\x0f.rekcurd.TensorH\x00\x12!\n\x03str\x18\x02 \x01(\x0b\x32\x12.rekcurd.ArrStringH\x00\x42\n\n\x08io_oneof\"\x14\n\x12ServiceInfoRequest\"\\\n\x13ServiceInfoResponse\x12\x18\n\x10\x61pplication_name\x18\x01 \x01(\t\x12\x14\n\x0cservice_name\x18\x02 \x01(\t\x12\x15\n\rservice_level\x18\x03 \x01(\t\"0\n\x12UploadModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\"\n\x12SwitchModelRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"0\n\rModelResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\">\n\x1bUploadEvaluationDataRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x11\n\tdata_path\x18\x02 \x01(\t\"?\n\x1cUploadEvaluationDataResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"P\n\x14\x45valuateModelRequest\x12\x10\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x42\x02\x18\x01\x12\x11\n\tdata_path\x18\x02 \x01(\t\x12\x13\n\x0bresult_path\x18\x03 \x01(\t\"\xe8\x01\n\x11\x45valuationMetrics\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\x12\x36\n\x06option\x18\x06 \x03(\x0b\x32&.rekcurd.EvaluationMetrics.OptionEntry\x12\x1a\n\x05label\x18\x07 \x03(\x0b\x32\x0b.rekcurd.IO\x1a-\n\x0bOptionEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\"D\n\x15\x45valuateModelResponse\x12+\n\x07metrics\x18\x01 \x01(\x0b\x32\x1a.rekcurd.EvaluationMetrics\"A\n\x17\x45valuationResultRequest\x12\x11\n\tdata_path\x18\x01 \x01(\t\x12\x13\n\x0bresult_path\x18\x02 \x01(\t\"\x84\x02\n\x18\x45valuationResultResponse\x12+\n\x07metrics\x18\x01 \x01(\x0b\x32\x1a.rekcurd.EvaluationMetrics\x12\x38\n\x06\x64\x65tail\x18\x02 \x03(\x0b\x32(.rekcurd.EvaluationResultResponse.Detail\x1a\x80\x01\n\x06\x44\x65tail\x12\x1a\n\x05input\x18\x01 \x01(\x0b\x32\x0b.rekcurd.IO\x12\x1a\n\x05label\x18\x02 \x01(\x0b\x32\x0b.rekcurd.IO\x12\x1b\n\x06output\x18\x03 \x01(\x0b\x32\x0b.rekcurd.IO\x12\r\n\x05score\x18\x04 \x03(\x02\x12\x12\n\nis_correct\x18\x05 \x01(\x08\"\x15\n\x06Option\x12\x0b\n\x03val\x18\x01 \x01(\t\"=\n\x0bStringInput\x12\r\n\x05input\x18\x01 \x01(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"<\n\nBytesInput\x12\r\n\x05input\x18\x01 \x01(\x0c\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"=\n\x0b\x41rrIntInput\x12\r\n\x05input\x18\x01 \x03(\x05\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"?\n\rArrFloatInput\x12\r\n\x05input\x18\x01 \x03(\x02\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"@\n\x0e\x41rrStringInput\x12\r\n\x05input\x18\x01 \x03(\t\x12\x1f\n\x06option\x18\x02 \x01(\x0b\x32\x0f.rekcurd.Option\"N\n\x0cStringOutput\x12\x0e\n\x06output\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"M\n\x0b\x42ytesOutput\x12\x0e\n\x06output\x18\x01 \x01(\x0c\x12\r\n\x05score\x18\x02 \x01(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"N\n\x0c\x41rrIntOutput\x12\x0e\n\x06output\x18\x01 \x03(\x05\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"P\n\x0e\x41rrFloatOutput\x12\x0e\n\x06output\x18\x01 \x03(\x02\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option\"Q\n\x0f\x41rrStringOutput\x12\x0e\n\x06output\x18\x01 \x03(\t\x12\r\n\x05score\x18\x02 \x03(\x02\x12\x1f\n\x06option\x18\x03 \x01(\x0b\x32\x0f.rekcurd.Option*)\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x32L\n\x06Health\x12\x42\n\x05\x43heck\x12\x1b.rekcurd.HealthCheckRequest\x1a\x1c.rekcurd.HealthCheckResponse2\x86\x04\n\x10RekcurdDashboard\x12J\n\x0bServiceInfo\x12\x1b.rekcurd.ServiceInfoRequest\x1a\x1c.rekcurd.ServiceInfoResponse\"\x00\x12\x46\n\x0bUploadModel\x12\x1b.rekcurd.UploadModelRequest\x1a\x16.rekcurd.ModelResponse\"\x00(\x01\x12\x44\n\x0bSwitchModel\x12\x1b.rekcurd.SwitchModelRequest\x1a\x16.rekcurd.ModelResponse\"\x00\x12g\n\x14UploadEvaluationData\x12$.rekcurd.UploadEvaluationDataRequest\x1a%.rekcurd.UploadEvaluationDataResponse\"\x00(\x01\x12R\n\rEvaluateModel\x12\x1d.rekcurd.EvaluateModelRequest\x1a\x1e.rekcurd.EvaluateModelResponse\"\x00(\x01\x12[\n\x10\x45valuationResult\x12 .rekcurd.EvaluationResultRequest\x1a!.rekcurd.EvaluationResultResponse\"\x00\x30\x01\x32\xfb\x0e\n\rRekcurdWorker\x12\x46\n\x15Predict_String_String\x12\x14.rekcurd.StringInput\x1a\x15.rekcurd.StringOutput\"\x00\x12\x46\n\x14Predict_String_Bytes\x12\x14.rekcurd.StringInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_String_ArrInt\x12\x14.rekcurd.StringInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12J\n\x17Predict_String_ArrFloat\x12\x14.rekcurd.StringInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12L\n\x18Predict_String_ArrString\x12\x14.rekcurd.StringInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12\x46\n\x14Predict_Bytes_String\x12\x13.rekcurd.BytesInput\x1a\x15.rekcurd.StringOutput\"\x00(\x01\x12\x46\n\x13Predict_Bytes_Bytes\x12\x13.rekcurd.BytesInput\x1a\x14.rekcurd.BytesOutput\"\x00(\x01\x30\x01\x12\x46\n\x14Predict_Bytes_ArrInt\x12\x13.rekcurd.BytesInput\x1a\x15.rekcurd.ArrIntOutput\"\x00(\x01\x12J\n\x16Predict_Bytes_ArrFloat\x12\x13.rekcurd.BytesInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00(\x01\x12L\n\x17Predict_Bytes_ArrString\x12\x13.rekcurd.BytesInput\x1a\x18.rekcurd.ArrStringOutput\"\x00(\x01\x12\x46\n\x15Predict_ArrInt_String\x12\x14.rekcurd.ArrIntInput\x1a\x15.rekcurd.StringOutput\"\x00\x12\x46\n\x14Predict_ArrInt_Bytes\x12\x14.rekcurd.ArrIntInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12\x46\n\x15Predict_ArrInt_ArrInt\x12\x14.rekcurd.ArrIntInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12J\n\x17Predict_ArrInt_ArrFloat\x12\x14.rekcurd.ArrIntInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12L\n\x18Predict_ArrInt_ArrString\x12\x14.rekcurd.ArrIntInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12J\n\x17Predict_ArrFloat_String\x12\x16.rekcurd.ArrFloatInput\x1a\x15.rekcurd.StringOutput\"\x00\x12J\n\x16Predict_ArrFloat_Bytes\x12\x16.rekcurd.ArrFloatInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12J\n\x17Predict_ArrFloat_ArrInt\x12\x16.rekcurd.ArrFloatInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12N\n\x19Predict_ArrFloat_ArrFloat\x12\x16.rekcurd.ArrFloatInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12P\n\x1aPredict_ArrFloat_ArrString\x12\x16.rekcurd.ArrFloatInput\x1a\x18.rekcurd.ArrStringOutput\"\x00\x12L\n\x18Predict_ArrString_String\x12\x17.rekcurd.ArrStringInput\x1a\x15.rekcurd.StringOutput\"\x00\x12L\n\x17Predict_ArrString_Bytes\x12\x17.rekcurd.ArrStringInput\x1a\x14.rekcurd.BytesOutput\"\x00\x30\x01\x12L\n\x18Predict_ArrString_ArrInt\x12\x17.rekcurd.ArrStringInput\x1a\x15.rekcurd.ArrIntOutput\"\x00\x12P\n\x1aPredict_ArrString_ArrFloat\x12\x17.rekcurd.ArrStringInput\x1a\x17.rekcurd.ArrFloatOutput\"\x00\x12R\n\x1bPredict_ArrString_ArrString\x12\x17.rekcurd.ArrStringInput\x1a\x18.rekcurd.ArrStringOutput\"\x00:B\n\x1arekcurd_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v2b\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
@@ -33,21 +33,21 @@ _ENUMVERSIONINFO = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='v0', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='v1', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='v2', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
-  serialized_start=2211,
-  serialized_end=2252,
+  serialized_options=None,
+  serialized_start=2239,
+  serialized_end=2280,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMVERSIONINFO)
 
@@ -63,7 +63,7 @@ rekcurd_grpc_proto_version = _descriptor.FieldDescriptor(
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
-  options=None, file=DESCRIPTOR)
+  serialized_options=None, file=DESCRIPTOR)
 
 _HEALTHCHECKRESPONSE_SERVINGSTATUS = _descriptor.EnumDescriptor(
   name='ServingStatus',
@@ -73,19 +73,19 @@ _HEALTHCHECKRESPONSE_SERVINGSTATUS = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNKNOWN', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='SERVING', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='NOT_SERVING', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
+  serialized_options=None,
   serialized_start=183,
   serialized_end=241,
 )
@@ -105,14 +105,14 @@ _HEALTHCHECKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -136,7 +136,7 @@ _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -144,7 +144,7 @@ _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
   enum_types=[
     _HEALTHCHECKRESPONSE_SERVINGSTATUS,
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -168,14 +168,14 @@ _ARRSTRING = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -199,21 +199,21 @@ _TENSOR = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='val', full_name='rekcurd.Tensor.val', index=1,
       number=2, type=1, cpp_type=5, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -237,21 +237,21 @@ _IO = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='str', full_name='rekcurd.IO.str', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -278,7 +278,7 @@ _SERVICEINFOREQUEST = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -302,28 +302,28 @@ _SERVICEINFORESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='service_name', full_name='rekcurd.ServiceInfoResponse.service_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='service_level', full_name='rekcurd.ServiceInfoResponse.service_level', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -347,21 +347,21 @@ _UPLOADMODELREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='rekcurd.UploadModelRequest.data', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -385,14 +385,14 @@ _SWITCHMODELREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -416,21 +416,21 @@ _MODELRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='message', full_name='rekcurd.ModelResponse.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -454,21 +454,21 @@ _UPLOADEVALUATIONDATAREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data_path', full_name='rekcurd.UploadEvaluationDataRequest.data_path', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -492,21 +492,21 @@ _UPLOADEVALUATIONDATARESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='message', full_name='rekcurd.UploadEvaluationDataResponse.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -530,28 +530,28 @@ _EVALUATEMODELREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\030\001')), file=DESCRIPTOR),
+      serialized_options=_b('\030\001'), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data_path', full_name='rekcurd.EvaluateModelRequest.data_path', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='result_path', full_name='rekcurd.EvaluateModelRequest.result_path', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -575,28 +575,28 @@ _EVALUATIONMETRICS_OPTIONENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='value', full_name='rekcurd.EvaluationMetrics.OptionEntry.value', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
+  serialized_options=_b('8\001'),
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1018,
-  serialized_end=1063,
+  serialized_start=1046,
+  serialized_end=1091,
 )
 
 _EVALUATIONMETRICS = _descriptor.Descriptor(
@@ -612,56 +612,63 @@ _EVALUATIONMETRICS = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='accuracy', full_name='rekcurd.EvaluationMetrics.accuracy', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='precision', full_name='rekcurd.EvaluationMetrics.precision', index=2,
       number=3, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='recall', full_name='rekcurd.EvaluationMetrics.recall', index=3,
       number=4, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='fvalue', full_name='rekcurd.EvaluationMetrics.fvalue', index=4,
       number=5, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.EvaluationMetrics.option', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='label', full_name='rekcurd.EvaluationMetrics.label', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_EVALUATIONMETRICS_OPTIONENTRY, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=859,
-  serialized_end=1063,
+  serialized_end=1091,
 )
 
 
@@ -678,21 +685,21 @@ _EVALUATEMODELRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1065,
-  serialized_end=1133,
+  serialized_start=1093,
+  serialized_end=1161,
 )
 
 
@@ -709,28 +716,28 @@ _EVALUATIONRESULTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='result_path', full_name='rekcurd.EvaluationResultRequest.result_path', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1135,
-  serialized_end=1200,
+  serialized_start=1163,
+  serialized_end=1228,
 )
 
 
@@ -747,49 +754,49 @@ _EVALUATIONRESULTRESPONSE_DETAIL = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='label', full_name='rekcurd.EvaluationResultResponse.Detail.label', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='output', full_name='rekcurd.EvaluationResultResponse.Detail.output', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.EvaluationResultResponse.Detail.score', index=3,
       number=4, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='is_correct', full_name='rekcurd.EvaluationResultResponse.Detail.is_correct', index=4,
       number=5, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1335,
-  serialized_end=1463,
+  serialized_start=1363,
+  serialized_end=1491,
 )
 
 _EVALUATIONRESULTRESPONSE = _descriptor.Descriptor(
@@ -805,28 +812,28 @@ _EVALUATIONRESULTRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='detail', full_name='rekcurd.EvaluationResultResponse.detail', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_EVALUATIONRESULTRESPONSE_DETAIL, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1203,
-  serialized_end=1463,
+  serialized_start=1231,
+  serialized_end=1491,
 )
 
 
@@ -843,21 +850,21 @@ _OPTION = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1465,
-  serialized_end=1486,
+  serialized_start=1493,
+  serialized_end=1514,
 )
 
 
@@ -874,28 +881,28 @@ _STRINGINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.StringInput.option', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1488,
-  serialized_end=1549,
+  serialized_start=1516,
+  serialized_end=1577,
 )
 
 
@@ -912,28 +919,28 @@ _BYTESINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.BytesInput.option', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1551,
-  serialized_end=1611,
+  serialized_start=1579,
+  serialized_end=1639,
 )
 
 
@@ -950,28 +957,28 @@ _ARRINTINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrIntInput.option', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1613,
-  serialized_end=1674,
+  serialized_start=1641,
+  serialized_end=1702,
 )
 
 
@@ -988,28 +995,28 @@ _ARRFLOATINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrFloatInput.option', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1676,
-  serialized_end=1739,
+  serialized_start=1704,
+  serialized_end=1767,
 )
 
 
@@ -1026,28 +1033,28 @@ _ARRSTRINGINPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrStringInput.option', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1741,
-  serialized_end=1805,
+  serialized_start=1769,
+  serialized_end=1833,
 )
 
 
@@ -1064,35 +1071,35 @@ _STRINGOUTPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.StringOutput.score', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.StringOutput.option', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1807,
-  serialized_end=1885,
+  serialized_start=1835,
+  serialized_end=1913,
 )
 
 
@@ -1109,35 +1116,35 @@ _BYTESOUTPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.BytesOutput.score', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.BytesOutput.option', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1887,
-  serialized_end=1964,
+  serialized_start=1915,
+  serialized_end=1992,
 )
 
 
@@ -1154,35 +1161,35 @@ _ARRINTOUTPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.ArrIntOutput.score', index=1,
       number=2, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrIntOutput.option', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1966,
-  serialized_end=2044,
+  serialized_start=1994,
+  serialized_end=2072,
 )
 
 
@@ -1199,35 +1206,35 @@ _ARRFLOATOUTPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.ArrFloatOutput.score', index=1,
       number=2, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrFloatOutput.option', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2046,
-  serialized_end=2126,
+  serialized_start=2074,
+  serialized_end=2154,
 )
 
 
@@ -1244,35 +1251,35 @@ _ARRSTRINGOUTPUT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='score', full_name='rekcurd.ArrStringOutput.score', index=1,
       number=2, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='option', full_name='rekcurd.ArrStringOutput.option', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2128,
-  serialized_end=2209,
+  serialized_start=2156,
+  serialized_end=2237,
 )
 
 _HEALTHCHECKRESPONSE.fields_by_name['status'].enum_type = _HEALTHCHECKRESPONSE_SERVINGSTATUS
@@ -1287,6 +1294,7 @@ _IO.oneofs_by_name['io_oneof'].fields.append(
 _IO.fields_by_name['str'].containing_oneof = _IO.oneofs_by_name['io_oneof']
 _EVALUATIONMETRICS_OPTIONENTRY.containing_type = _EVALUATIONMETRICS
 _EVALUATIONMETRICS.fields_by_name['option'].message_type = _EVALUATIONMETRICS_OPTIONENTRY
+_EVALUATIONMETRICS.fields_by_name['label'].message_type = _IO
 _EVALUATEMODELRESPONSE.fields_by_name['metrics'].message_type = _EVALUATIONMETRICS
 _EVALUATIONRESULTRESPONSE_DETAIL.fields_by_name['input'].message_type = _IO
 _EVALUATIONRESULTRESPONSE_DETAIL.fields_by_name['label'].message_type = _IO
@@ -1550,21 +1558,18 @@ _sym_db.RegisterMessage(ArrStringOutput)
 
 google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(rekcurd_grpc_proto_version)
 
-DESCRIPTOR.has_options = True
-DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\202\265\030\002v2'))
-_EVALUATEMODELREQUEST.fields_by_name['data'].has_options = True
-_EVALUATEMODELREQUEST.fields_by_name['data']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\030\001'))
-_EVALUATIONMETRICS_OPTIONENTRY.has_options = True
-_EVALUATIONMETRICS_OPTIONENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+DESCRIPTOR._options = None
+_EVALUATEMODELREQUEST.fields_by_name['data']._options = None
+_EVALUATIONMETRICS_OPTIONENTRY._options = None
 
 _HEALTH = _descriptor.ServiceDescriptor(
   name='Health',
   full_name='rekcurd.Health',
   file=DESCRIPTOR,
   index=0,
-  options=None,
-  serialized_start=2254,
-  serialized_end=2330,
+  serialized_options=None,
+  serialized_start=2282,
+  serialized_end=2358,
   methods=[
   _descriptor.MethodDescriptor(
     name='Check',
@@ -1573,7 +1578,7 @@ _HEALTH = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_HEALTHCHECKREQUEST,
     output_type=_HEALTHCHECKRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_HEALTH)
@@ -1586,9 +1591,9 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
   full_name='rekcurd.RekcurdDashboard',
   file=DESCRIPTOR,
   index=1,
-  options=None,
-  serialized_start=2333,
-  serialized_end=2851,
+  serialized_options=None,
+  serialized_start=2361,
+  serialized_end=2879,
   methods=[
   _descriptor.MethodDescriptor(
     name='ServiceInfo',
@@ -1597,7 +1602,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SERVICEINFOREQUEST,
     output_type=_SERVICEINFORESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='UploadModel',
@@ -1606,7 +1611,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_UPLOADMODELREQUEST,
     output_type=_MODELRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='SwitchModel',
@@ -1615,7 +1620,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SWITCHMODELREQUEST,
     output_type=_MODELRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='UploadEvaluationData',
@@ -1624,7 +1629,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_UPLOADEVALUATIONDATAREQUEST,
     output_type=_UPLOADEVALUATIONDATARESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='EvaluateModel',
@@ -1633,7 +1638,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_EVALUATEMODELREQUEST,
     output_type=_EVALUATEMODELRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='EvaluationResult',
@@ -1642,7 +1647,7 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_EVALUATIONRESULTREQUEST,
     output_type=_EVALUATIONRESULTRESPONSE,
-    options=None,
+    serialized_options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_REKCURDDASHBOARD)
@@ -1655,9 +1660,9 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
   full_name='rekcurd.RekcurdWorker',
   file=DESCRIPTOR,
   index=2,
-  options=None,
-  serialized_start=2854,
-  serialized_end=4769,
+  serialized_options=None,
+  serialized_start=2882,
+  serialized_end=4797,
   methods=[
   _descriptor.MethodDescriptor(
     name='Predict_String_String',
@@ -1666,7 +1671,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STRINGINPUT,
     output_type=_STRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_String_Bytes',
@@ -1675,7 +1680,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STRINGINPUT,
     output_type=_BYTESOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_String_ArrInt',
@@ -1684,7 +1689,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STRINGINPUT,
     output_type=_ARRINTOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_String_ArrFloat',
@@ -1693,7 +1698,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STRINGINPUT,
     output_type=_ARRFLOATOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_String_ArrString',
@@ -1702,7 +1707,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STRINGINPUT,
     output_type=_ARRSTRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_Bytes_String',
@@ -1711,7 +1716,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BYTESINPUT,
     output_type=_STRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_Bytes_Bytes',
@@ -1720,7 +1725,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BYTESINPUT,
     output_type=_BYTESOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_Bytes_ArrInt',
@@ -1729,7 +1734,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BYTESINPUT,
     output_type=_ARRINTOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_Bytes_ArrFloat',
@@ -1738,7 +1743,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BYTESINPUT,
     output_type=_ARRFLOATOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_Bytes_ArrString',
@@ -1747,7 +1752,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BYTESINPUT,
     output_type=_ARRSTRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrInt_String',
@@ -1756,7 +1761,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRINTINPUT,
     output_type=_STRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrInt_Bytes',
@@ -1765,7 +1770,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRINTINPUT,
     output_type=_BYTESOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrInt_ArrInt',
@@ -1774,7 +1779,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRINTINPUT,
     output_type=_ARRINTOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrInt_ArrFloat',
@@ -1783,7 +1788,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRINTINPUT,
     output_type=_ARRFLOATOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrInt_ArrString',
@@ -1792,7 +1797,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRINTINPUT,
     output_type=_ARRSTRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrFloat_String',
@@ -1801,7 +1806,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRFLOATINPUT,
     output_type=_STRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrFloat_Bytes',
@@ -1810,7 +1815,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRFLOATINPUT,
     output_type=_BYTESOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrFloat_ArrInt',
@@ -1819,7 +1824,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRFLOATINPUT,
     output_type=_ARRINTOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrFloat_ArrFloat',
@@ -1828,7 +1833,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRFLOATINPUT,
     output_type=_ARRFLOATOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrFloat_ArrString',
@@ -1837,7 +1842,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRFLOATINPUT,
     output_type=_ARRSTRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrString_String',
@@ -1846,7 +1851,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRSTRINGINPUT,
     output_type=_STRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrString_Bytes',
@@ -1855,7 +1860,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRSTRINGINPUT,
     output_type=_BYTESOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrString_ArrInt',
@@ -1864,7 +1869,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRSTRINGINPUT,
     output_type=_ARRINTOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrString_ArrFloat',
@@ -1873,7 +1878,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRSTRINGINPUT,
     output_type=_ARRFLOATOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='Predict_ArrString_ArrString',
@@ -1882,7 +1887,7 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ARRSTRINGINPUT,
     output_type=_ARRSTRINGOUTPUT,
-    options=None,
+    serialized_options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_REKCURDWORKER)

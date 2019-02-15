@@ -5,8 +5,8 @@ import rekcurd_pb2 as rekcurd__pb2
 
 
 class HealthStub(object):
-  """gRPC official health check service.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def __init__(self, channel):
     """Constructor.
@@ -15,15 +15,15 @@ class HealthStub(object):
       channel: A grpc.Channel.
     """
     self.Check = channel.unary_unary(
-        '/rekcurd.Health/Check',
+        '/rekcurd.protos.Health/Check',
         request_serializer=rekcurd__pb2.HealthCheckRequest.SerializeToString,
         response_deserializer=rekcurd__pb2.HealthCheckResponse.FromString,
         )
 
 
 class HealthServicer(object):
-  """gRPC official health check service.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def Check(self, request, context):
     # missing associated documentation comment in .proto file
@@ -42,12 +42,15 @@ def add_HealthServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'rekcurd.Health', rpc_method_handlers)
+      'rekcurd.protos.Health', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
 
 
 class RekcurdDashboardStub(object):
-  """Rekcurd Dashboard service.
+  """[END Messages]
+
+  [START Services]
+
   """
 
   def __init__(self, channel):
@@ -57,80 +60,82 @@ class RekcurdDashboardStub(object):
       channel: A grpc.Channel.
     """
     self.ServiceInfo = channel.unary_unary(
-        '/rekcurd.RekcurdDashboard/ServiceInfo',
+        '/rekcurd.protos.RekcurdDashboard/ServiceInfo',
         request_serializer=rekcurd__pb2.ServiceInfoRequest.SerializeToString,
         response_deserializer=rekcurd__pb2.ServiceInfoResponse.FromString,
         )
     self.UploadModel = channel.stream_unary(
-        '/rekcurd.RekcurdDashboard/UploadModel',
-        request_serializer=rekcurd__pb2.UploadModelRequest.SerializeToString,
-        response_deserializer=rekcurd__pb2.ModelResponse.FromString,
+        '/rekcurd.protos.RekcurdDashboard/UploadModel',
+        request_serializer=rekcurd__pb2.FileStream.SerializeToString,
+        response_deserializer=rekcurd__pb2.Status.FromString,
         )
     self.SwitchModel = channel.unary_unary(
-        '/rekcurd.RekcurdDashboard/SwitchModel',
+        '/rekcurd.protos.RekcurdDashboard/SwitchModel',
         request_serializer=rekcurd__pb2.SwitchModelRequest.SerializeToString,
-        response_deserializer=rekcurd__pb2.ModelResponse.FromString,
+        response_deserializer=rekcurd__pb2.Status.FromString,
         )
     self.UploadEvaluationData = channel.stream_unary(
-        '/rekcurd.RekcurdDashboard/UploadEvaluationData',
-        request_serializer=rekcurd__pb2.UploadEvaluationDataRequest.SerializeToString,
-        response_deserializer=rekcurd__pb2.UploadEvaluationDataResponse.FromString,
+        '/rekcurd.protos.RekcurdDashboard/UploadEvaluationData',
+        request_serializer=rekcurd__pb2.FileStream.SerializeToString,
+        response_deserializer=rekcurd__pb2.Status.FromString,
         )
-    self.EvaluateModel = channel.stream_unary(
-        '/rekcurd.RekcurdDashboard/EvaluateModel',
-        request_serializer=rekcurd__pb2.EvaluateModelRequest.SerializeToString,
-        response_deserializer=rekcurd__pb2.EvaluateModelResponse.FromString,
+    self.EvaluateModel = channel.unary_unary(
+        '/rekcurd.protos.RekcurdDashboard/EvaluateModel',
+        request_serializer=rekcurd__pb2.EvaluationDataPath.SerializeToString,
+        response_deserializer=rekcurd__pb2.EvaluationResponse.FromString,
         )
     self.EvaluationResult = channel.unary_stream(
-        '/rekcurd.RekcurdDashboard/EvaluationResult',
-        request_serializer=rekcurd__pb2.EvaluationResultRequest.SerializeToString,
+        '/rekcurd.protos.RekcurdDashboard/EvaluationResult',
+        request_serializer=rekcurd__pb2.EvaluationDataPath.SerializeToString,
         response_deserializer=rekcurd__pb2.EvaluationResultResponse.FromString,
         )
 
 
 class RekcurdDashboardServicer(object):
-  """Rekcurd Dashboard service.
+  """[END Messages]
+
+  [START Services]
+
   """
 
   def ServiceInfo(self, request, context):
-    """Get Service Info.
-    """
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UploadModel(self, request_iterator, context):
-    """Upload your latest ML model.
-    """
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SwitchModel(self, request, context):
-    """Switch your ML model to run.
-    """
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UploadEvaluationData(self, request_iterator, context):
-    """Upload data for evaluation
-    """
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def EvaluateModel(self, request_iterator, context):
-    """Evaluate the accuracy of your ML model.
-    Deprecated: `stream` is deprecated. upload evaluation data by using UploadEvaluationData
-    """
+  def EvaluateModel(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def EvaluationResult(self, request, context):
-    """Get detailed result of EvaluateModel
-    """
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -145,38 +150,38 @@ def add_RekcurdDashboardServicer_to_server(servicer, server):
       ),
       'UploadModel': grpc.stream_unary_rpc_method_handler(
           servicer.UploadModel,
-          request_deserializer=rekcurd__pb2.UploadModelRequest.FromString,
-          response_serializer=rekcurd__pb2.ModelResponse.SerializeToString,
+          request_deserializer=rekcurd__pb2.FileStream.FromString,
+          response_serializer=rekcurd__pb2.Status.SerializeToString,
       ),
       'SwitchModel': grpc.unary_unary_rpc_method_handler(
           servicer.SwitchModel,
           request_deserializer=rekcurd__pb2.SwitchModelRequest.FromString,
-          response_serializer=rekcurd__pb2.ModelResponse.SerializeToString,
+          response_serializer=rekcurd__pb2.Status.SerializeToString,
       ),
       'UploadEvaluationData': grpc.stream_unary_rpc_method_handler(
           servicer.UploadEvaluationData,
-          request_deserializer=rekcurd__pb2.UploadEvaluationDataRequest.FromString,
-          response_serializer=rekcurd__pb2.UploadEvaluationDataResponse.SerializeToString,
+          request_deserializer=rekcurd__pb2.FileStream.FromString,
+          response_serializer=rekcurd__pb2.Status.SerializeToString,
       ),
-      'EvaluateModel': grpc.stream_unary_rpc_method_handler(
+      'EvaluateModel': grpc.unary_unary_rpc_method_handler(
           servicer.EvaluateModel,
-          request_deserializer=rekcurd__pb2.EvaluateModelRequest.FromString,
-          response_serializer=rekcurd__pb2.EvaluateModelResponse.SerializeToString,
+          request_deserializer=rekcurd__pb2.EvaluationDataPath.FromString,
+          response_serializer=rekcurd__pb2.EvaluationResponse.SerializeToString,
       ),
       'EvaluationResult': grpc.unary_stream_rpc_method_handler(
           servicer.EvaluationResult,
-          request_deserializer=rekcurd__pb2.EvaluationResultRequest.FromString,
+          request_deserializer=rekcurd__pb2.EvaluationDataPath.FromString,
           response_serializer=rekcurd__pb2.EvaluationResultResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'rekcurd.RekcurdDashboard', rpc_method_handlers)
+      'rekcurd.protos.RekcurdDashboard', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
 
 
 class RekcurdWorkerStub(object):
-  """Rekcurd worker service.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def __init__(self, channel):
     """Constructor.
@@ -184,308 +189,20 @@ class RekcurdWorkerStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.Predict_String_String = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_String_String',
-        request_serializer=rekcurd__pb2.StringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.StringOutput.FromString,
-        )
-    self.Predict_String_Bytes = channel.unary_stream(
-        '/rekcurd.RekcurdWorker/Predict_String_Bytes',
-        request_serializer=rekcurd__pb2.StringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.BytesOutput.FromString,
-        )
-    self.Predict_String_ArrInt = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_String_ArrInt',
-        request_serializer=rekcurd__pb2.StringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrIntOutput.FromString,
-        )
-    self.Predict_String_ArrFloat = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_String_ArrFloat',
-        request_serializer=rekcurd__pb2.StringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrFloatOutput.FromString,
-        )
-    self.Predict_String_ArrString = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_String_ArrString',
-        request_serializer=rekcurd__pb2.StringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrStringOutput.FromString,
-        )
-    self.Predict_Bytes_String = channel.stream_unary(
-        '/rekcurd.RekcurdWorker/Predict_Bytes_String',
-        request_serializer=rekcurd__pb2.BytesInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.StringOutput.FromString,
-        )
-    self.Predict_Bytes_Bytes = channel.stream_stream(
-        '/rekcurd.RekcurdWorker/Predict_Bytes_Bytes',
-        request_serializer=rekcurd__pb2.BytesInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.BytesOutput.FromString,
-        )
-    self.Predict_Bytes_ArrInt = channel.stream_unary(
-        '/rekcurd.RekcurdWorker/Predict_Bytes_ArrInt',
-        request_serializer=rekcurd__pb2.BytesInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrIntOutput.FromString,
-        )
-    self.Predict_Bytes_ArrFloat = channel.stream_unary(
-        '/rekcurd.RekcurdWorker/Predict_Bytes_ArrFloat',
-        request_serializer=rekcurd__pb2.BytesInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrFloatOutput.FromString,
-        )
-    self.Predict_Bytes_ArrString = channel.stream_unary(
-        '/rekcurd.RekcurdWorker/Predict_Bytes_ArrString',
-        request_serializer=rekcurd__pb2.BytesInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrStringOutput.FromString,
-        )
-    self.Predict_ArrInt_String = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrInt_String',
-        request_serializer=rekcurd__pb2.ArrIntInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.StringOutput.FromString,
-        )
-    self.Predict_ArrInt_Bytes = channel.unary_stream(
-        '/rekcurd.RekcurdWorker/Predict_ArrInt_Bytes',
-        request_serializer=rekcurd__pb2.ArrIntInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.BytesOutput.FromString,
-        )
-    self.Predict_ArrInt_ArrInt = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrInt_ArrInt',
-        request_serializer=rekcurd__pb2.ArrIntInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrIntOutput.FromString,
-        )
-    self.Predict_ArrInt_ArrFloat = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrInt_ArrFloat',
-        request_serializer=rekcurd__pb2.ArrIntInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrFloatOutput.FromString,
-        )
-    self.Predict_ArrInt_ArrString = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrInt_ArrString',
-        request_serializer=rekcurd__pb2.ArrIntInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrStringOutput.FromString,
-        )
-    self.Predict_ArrFloat_String = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrFloat_String',
-        request_serializer=rekcurd__pb2.ArrFloatInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.StringOutput.FromString,
-        )
-    self.Predict_ArrFloat_Bytes = channel.unary_stream(
-        '/rekcurd.RekcurdWorker/Predict_ArrFloat_Bytes',
-        request_serializer=rekcurd__pb2.ArrFloatInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.BytesOutput.FromString,
-        )
-    self.Predict_ArrFloat_ArrInt = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrFloat_ArrInt',
-        request_serializer=rekcurd__pb2.ArrFloatInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrIntOutput.FromString,
-        )
-    self.Predict_ArrFloat_ArrFloat = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrFloat_ArrFloat',
-        request_serializer=rekcurd__pb2.ArrFloatInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrFloatOutput.FromString,
-        )
-    self.Predict_ArrFloat_ArrString = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrFloat_ArrString',
-        request_serializer=rekcurd__pb2.ArrFloatInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrStringOutput.FromString,
-        )
-    self.Predict_ArrString_String = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrString_String',
-        request_serializer=rekcurd__pb2.ArrStringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.StringOutput.FromString,
-        )
-    self.Predict_ArrString_Bytes = channel.unary_stream(
-        '/rekcurd.RekcurdWorker/Predict_ArrString_Bytes',
-        request_serializer=rekcurd__pb2.ArrStringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.BytesOutput.FromString,
-        )
-    self.Predict_ArrString_ArrInt = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrString_ArrInt',
-        request_serializer=rekcurd__pb2.ArrStringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrIntOutput.FromString,
-        )
-    self.Predict_ArrString_ArrFloat = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrString_ArrFloat',
-        request_serializer=rekcurd__pb2.ArrStringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrFloatOutput.FromString,
-        )
-    self.Predict_ArrString_ArrString = channel.unary_unary(
-        '/rekcurd.RekcurdWorker/Predict_ArrString_ArrString',
-        request_serializer=rekcurd__pb2.ArrStringInput.SerializeToString,
-        response_deserializer=rekcurd__pb2.ArrStringOutput.FromString,
+    self.Predict = channel.unary_unary(
+        '/rekcurd.protos.RekcurdWorker/Predict',
+        request_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+        response_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
         )
 
 
 class RekcurdWorkerServicer(object):
-  """Rekcurd worker service.
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
-  def Predict_String_String(self, request, context):
-    """Input string, output string.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_String_Bytes(self, request, context):
-    """Input string, output bytes.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_String_ArrInt(self, request, context):
-    """Input string, output array[int].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_String_ArrFloat(self, request, context):
-    """Input string, output array[float].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_String_ArrString(self, request, context):
-    """Input string, output array[string].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_Bytes_String(self, request_iterator, context):
-    """Input bytes, output string.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_Bytes_Bytes(self, request_iterator, context):
-    """Input bytes, output bytes.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_Bytes_ArrInt(self, request_iterator, context):
-    """Input bytes, output array[int].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_Bytes_ArrFloat(self, request_iterator, context):
-    """Input bytes, output array[float].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_Bytes_ArrString(self, request_iterator, context):
-    """Input bytes, output array[string].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrInt_String(self, request, context):
-    """Input array[int], output string.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrInt_Bytes(self, request, context):
-    """Input array[int], output bytes.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrInt_ArrInt(self, request, context):
-    """Input array[int], output array[int].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrInt_ArrFloat(self, request, context):
-    """Input array[int], output array[float].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrInt_ArrString(self, request, context):
-    """Input array[int], output array[string].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrFloat_String(self, request, context):
-    """Input array[float], output string.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrFloat_Bytes(self, request, context):
-    """Input array[float], output bytes.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrFloat_ArrInt(self, request, context):
-    """Input array[float], output array[int].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrFloat_ArrFloat(self, request, context):
-    """Input array[float], output array[float].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrFloat_ArrString(self, request, context):
-    """Input array[float], output array[string].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrString_String(self, request, context):
-    """Input array[string], output string.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrString_Bytes(self, request, context):
-    """Input array[string], output bytes.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrString_ArrInt(self, request, context):
-    """Input array[string], output array[int].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrString_ArrFloat(self, request, context):
-    """Input array[string], output array[float].
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Predict_ArrString_ArrString(self, request, context):
-    """Input array[string], output array[string].
-    """
+  def Predict(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -493,132 +210,12 @@ class RekcurdWorkerServicer(object):
 
 def add_RekcurdWorkerServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'Predict_String_String': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_String_String,
-          request_deserializer=rekcurd__pb2.StringInput.FromString,
-          response_serializer=rekcurd__pb2.StringOutput.SerializeToString,
-      ),
-      'Predict_String_Bytes': grpc.unary_stream_rpc_method_handler(
-          servicer.Predict_String_Bytes,
-          request_deserializer=rekcurd__pb2.StringInput.FromString,
-          response_serializer=rekcurd__pb2.BytesOutput.SerializeToString,
-      ),
-      'Predict_String_ArrInt': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_String_ArrInt,
-          request_deserializer=rekcurd__pb2.StringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrIntOutput.SerializeToString,
-      ),
-      'Predict_String_ArrFloat': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_String_ArrFloat,
-          request_deserializer=rekcurd__pb2.StringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrFloatOutput.SerializeToString,
-      ),
-      'Predict_String_ArrString': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_String_ArrString,
-          request_deserializer=rekcurd__pb2.StringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrStringOutput.SerializeToString,
-      ),
-      'Predict_Bytes_String': grpc.stream_unary_rpc_method_handler(
-          servicer.Predict_Bytes_String,
-          request_deserializer=rekcurd__pb2.BytesInput.FromString,
-          response_serializer=rekcurd__pb2.StringOutput.SerializeToString,
-      ),
-      'Predict_Bytes_Bytes': grpc.stream_stream_rpc_method_handler(
-          servicer.Predict_Bytes_Bytes,
-          request_deserializer=rekcurd__pb2.BytesInput.FromString,
-          response_serializer=rekcurd__pb2.BytesOutput.SerializeToString,
-      ),
-      'Predict_Bytes_ArrInt': grpc.stream_unary_rpc_method_handler(
-          servicer.Predict_Bytes_ArrInt,
-          request_deserializer=rekcurd__pb2.BytesInput.FromString,
-          response_serializer=rekcurd__pb2.ArrIntOutput.SerializeToString,
-      ),
-      'Predict_Bytes_ArrFloat': grpc.stream_unary_rpc_method_handler(
-          servicer.Predict_Bytes_ArrFloat,
-          request_deserializer=rekcurd__pb2.BytesInput.FromString,
-          response_serializer=rekcurd__pb2.ArrFloatOutput.SerializeToString,
-      ),
-      'Predict_Bytes_ArrString': grpc.stream_unary_rpc_method_handler(
-          servicer.Predict_Bytes_ArrString,
-          request_deserializer=rekcurd__pb2.BytesInput.FromString,
-          response_serializer=rekcurd__pb2.ArrStringOutput.SerializeToString,
-      ),
-      'Predict_ArrInt_String': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrInt_String,
-          request_deserializer=rekcurd__pb2.ArrIntInput.FromString,
-          response_serializer=rekcurd__pb2.StringOutput.SerializeToString,
-      ),
-      'Predict_ArrInt_Bytes': grpc.unary_stream_rpc_method_handler(
-          servicer.Predict_ArrInt_Bytes,
-          request_deserializer=rekcurd__pb2.ArrIntInput.FromString,
-          response_serializer=rekcurd__pb2.BytesOutput.SerializeToString,
-      ),
-      'Predict_ArrInt_ArrInt': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrInt_ArrInt,
-          request_deserializer=rekcurd__pb2.ArrIntInput.FromString,
-          response_serializer=rekcurd__pb2.ArrIntOutput.SerializeToString,
-      ),
-      'Predict_ArrInt_ArrFloat': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrInt_ArrFloat,
-          request_deserializer=rekcurd__pb2.ArrIntInput.FromString,
-          response_serializer=rekcurd__pb2.ArrFloatOutput.SerializeToString,
-      ),
-      'Predict_ArrInt_ArrString': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrInt_ArrString,
-          request_deserializer=rekcurd__pb2.ArrIntInput.FromString,
-          response_serializer=rekcurd__pb2.ArrStringOutput.SerializeToString,
-      ),
-      'Predict_ArrFloat_String': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrFloat_String,
-          request_deserializer=rekcurd__pb2.ArrFloatInput.FromString,
-          response_serializer=rekcurd__pb2.StringOutput.SerializeToString,
-      ),
-      'Predict_ArrFloat_Bytes': grpc.unary_stream_rpc_method_handler(
-          servicer.Predict_ArrFloat_Bytes,
-          request_deserializer=rekcurd__pb2.ArrFloatInput.FromString,
-          response_serializer=rekcurd__pb2.BytesOutput.SerializeToString,
-      ),
-      'Predict_ArrFloat_ArrInt': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrFloat_ArrInt,
-          request_deserializer=rekcurd__pb2.ArrFloatInput.FromString,
-          response_serializer=rekcurd__pb2.ArrIntOutput.SerializeToString,
-      ),
-      'Predict_ArrFloat_ArrFloat': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrFloat_ArrFloat,
-          request_deserializer=rekcurd__pb2.ArrFloatInput.FromString,
-          response_serializer=rekcurd__pb2.ArrFloatOutput.SerializeToString,
-      ),
-      'Predict_ArrFloat_ArrString': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrFloat_ArrString,
-          request_deserializer=rekcurd__pb2.ArrFloatInput.FromString,
-          response_serializer=rekcurd__pb2.ArrStringOutput.SerializeToString,
-      ),
-      'Predict_ArrString_String': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrString_String,
-          request_deserializer=rekcurd__pb2.ArrStringInput.FromString,
-          response_serializer=rekcurd__pb2.StringOutput.SerializeToString,
-      ),
-      'Predict_ArrString_Bytes': grpc.unary_stream_rpc_method_handler(
-          servicer.Predict_ArrString_Bytes,
-          request_deserializer=rekcurd__pb2.ArrStringInput.FromString,
-          response_serializer=rekcurd__pb2.BytesOutput.SerializeToString,
-      ),
-      'Predict_ArrString_ArrInt': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrString_ArrInt,
-          request_deserializer=rekcurd__pb2.ArrStringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrIntOutput.SerializeToString,
-      ),
-      'Predict_ArrString_ArrFloat': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrString_ArrFloat,
-          request_deserializer=rekcurd__pb2.ArrStringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrFloatOutput.SerializeToString,
-      ),
-      'Predict_ArrString_ArrString': grpc.unary_unary_rpc_method_handler(
-          servicer.Predict_ArrString_ArrString,
-          request_deserializer=rekcurd__pb2.ArrStringInput.FromString,
-          response_serializer=rekcurd__pb2.ArrStringOutput.SerializeToString,
+      'Predict': grpc.unary_unary_rpc_method_handler(
+          servicer.Predict,
+          request_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+          response_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'rekcurd.RekcurdWorker', rpc_method_handlers)
+      'rekcurd.protos.RekcurdWorker', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

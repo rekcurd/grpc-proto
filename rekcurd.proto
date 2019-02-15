@@ -139,7 +139,7 @@ message EvaluationResultResponse {
         RekcurdMessage input = 1;
         RekcurdMessage output = 2;
         StringList label = 3;
-        bool is_correct = 4;
+        bool isCorrect = 4;
     }
 
     Status status = 1;

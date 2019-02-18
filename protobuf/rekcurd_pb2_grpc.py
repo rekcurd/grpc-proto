@@ -5,8 +5,9 @@ import rekcurd_pb2 as rekcurd__pb2
 
 
 class HealthStub(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """Health service.
+  https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+  """
 
   def __init__(self, channel):
     """Constructor.
@@ -22,8 +23,9 @@ class HealthStub(object):
 
 
 class HealthServicer(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """Health service.
+  https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+  """
 
   def Check(self, request, context):
     # missing associated documentation comment in .proto file
@@ -47,10 +49,7 @@ def add_HealthServicer_to_server(servicer, server):
 
 
 class RekcurdDashboardStub(object):
-  """[END Messages]
-
-  [START Services]
-
+  """RekcurdDashboard service.
   """
 
   def __init__(self, channel):
@@ -92,50 +91,50 @@ class RekcurdDashboardStub(object):
 
 
 class RekcurdDashboardServicer(object):
-  """[END Messages]
-
-  [START Services]
-
+  """RekcurdDashboard service.
   """
 
   def ServiceInfo(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """ServiceInfo rpc.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UploadModel(self, request_iterator, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """UploadModel rpc.
+    :NOTE: This method won't be used from Rekcurd-dashboard users.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def SwitchModel(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """SwitchModel rpc.
+    :NOTE: This method won't be used from Rekcurd-dashboard users.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UploadEvaluationData(self, request_iterator, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """UploadEvaluationData rpc.
+    :NOTE: This method won't be used from Rekcurd-dashboard users.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def EvaluateModel(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """EvaluateModel rpc.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def EvaluationResult(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """EvaluationResult rpc.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -180,8 +179,8 @@ def add_RekcurdDashboardServicer_to_server(servicer, server):
 
 
 class RekcurdWorkerStub(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """RekcurdWorker service.
+  """
 
   def __init__(self, channel):
     """Constructor.
@@ -194,15 +193,51 @@ class RekcurdWorkerStub(object):
         request_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
         response_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
         )
+    self.PredictInputStream = channel.stream_unary(
+        '/rekcurd.protos.RekcurdWorker/PredictInputStream',
+        request_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+        response_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+        )
+    self.PredictOutputStream = channel.unary_stream(
+        '/rekcurd.protos.RekcurdWorker/PredictOutputStream',
+        request_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+        response_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+        )
+    self.PredictInputOutputStream = channel.stream_stream(
+        '/rekcurd.protos.RekcurdWorker/PredictInputOutputStream',
+        request_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+        response_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+        )
 
 
 class RekcurdWorkerServicer(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """RekcurdWorker service.
+  """
 
   def Predict(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """Predict rpc.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def PredictInputStream(self, request_iterator, context):
+    """PredictInputStream rpc.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def PredictOutputStream(self, request, context):
+    """PredictOutputStream rpc.
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def PredictInputOutputStream(self, request_iterator, context):
+    """PredictInputOutputStream rpc.
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -212,6 +247,21 @@ def add_RekcurdWorkerServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'Predict': grpc.unary_unary_rpc_method_handler(
           servicer.Predict,
+          request_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+          response_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+      ),
+      'PredictInputStream': grpc.stream_unary_rpc_method_handler(
+          servicer.PredictInputStream,
+          request_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+          response_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+      ),
+      'PredictOutputStream': grpc.unary_stream_rpc_method_handler(
+          servicer.PredictOutputStream,
+          request_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
+          response_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
+      ),
+      'PredictInputOutputStream': grpc.stream_stream_rpc_method_handler(
+          servicer.PredictInputOutputStream,
           request_deserializer=rekcurd__pb2.RekcurdMessage.FromString,
           response_serializer=rekcurd__pb2.RekcurdMessage.SerializeToString,
       ),

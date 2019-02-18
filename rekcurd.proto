@@ -5,12 +5,14 @@ import "google/protobuf/struct.proto";
 
 package rekcurd.protos;
 
-// [START HealthCheck] https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-
+// HealthCheckRequest message.
+// https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 message HealthCheckRequest {
     string service = 1;
 }
 
+// HealthCheckResponse message.
+// https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 message HealthCheckResponse {
     enum ServingStatus {
         UNKNOWN = 0;
@@ -20,15 +22,14 @@ message HealthCheckResponse {
     ServingStatus status = 1;
 }
 
+// Health service.
+// https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 service Health {
     rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
 }
 
-// [END HealthCheck]
 
-
-// [START rekcurd.protos version]
-
+// Rekcurd grpc spec version info.
 extend google.protobuf.FileOptions {
     string rekcurd_grpc_proto_version = 50000;
 }
@@ -42,23 +43,16 @@ enum EnumVersionInfo {
     v3 = 3;
 }
 
-// [END rekcurd.protos version]
 
-
-// [START Messages]
-
+// RekcurdMessage message.
 message RekcurdMessage {
     Status status = 1;
     JsonFormatString meta = 2;
-    oneof data_oneof {
-        DefaultData data = 3;
-        bytes binData = 4;
-        string strData = 5;
-        StringList strDataList = 6;
-    }
-    Score score = 7;
+    DefaultData data = 3;
+    Score score = 4;
 }
 
+// Status message.
 message Status {
     enum StatusFlag {
         SUCCESS = 0;
@@ -71,33 +65,43 @@ message Status {
     StatusFlag status = 4;
 }
 
+// JsonFormatString message.
 message JsonFormatString {
     string val = 1;
 }
 
+// DefaultData message.
 message DefaultData {
     repeated string names = 1;
     oneof data_oneof {
         Tensor tensor = 2;
         google.protobuf.ListValue ndarray = 3;
+        bytes binData = 4;
+        string strData = 5;
+        StringList strDataList = 6;
     }
 }
 
+// Tensor message.
 message Tensor {
     repeated int32 shape = 1;
     repeated double val = 2;
 }
 
+// StringList message.
 message StringList {
     repeated string val = 1;
 }
 
+// Score message.
 message Score {
     repeated float val = 1;
 }
 
+// ServiceInfoRequest message.
 message ServiceInfoRequest {}
 
+// ServiceInfoResponse message.
 message ServiceInfoResponse {
     Status status = 1;
     string applicationName = 2;
@@ -105,20 +109,24 @@ message ServiceInfoResponse {
     string serviceLevel = 4;
 }
 
+// FileStream message.
 message FileStream {
     bytes binData = 1;
     string filePath = 2;
 }
 
+// SwitchModelRequest message.
 message SwitchModelRequest {
     string filePath = 1;
 }
 
+// EvaluationDataPath message.
 message EvaluationDataPath {
     string dataPath = 1;
     string resultPath = 2;
 }
 
+// EvaluationMetrics message.
 message EvaluationMetrics {
     int32 num = 1;
     float accuracy = 2;
@@ -129,11 +137,13 @@ message EvaluationMetrics {
     JsonFormatString option = 7;
 }
 
+// EvaluationResponse message.
 message EvaluationResponse {
     Status status = 1;
     EvaluationMetrics metrics = 2;
 }
 
+// EvaluationResultResponse message.
 message EvaluationResultResponse {
     message Detail {
         RekcurdMessage input = 1;
@@ -147,22 +157,34 @@ message EvaluationResultResponse {
     repeated Detail detail = 3;
 }
 
-// [END Messages]
 
-
-// [START Services]
-
+// RekcurdDashboard service.
 service RekcurdDashboard {
+    // ServiceInfo rpc.
     rpc ServiceInfo (ServiceInfoRequest) returns (ServiceInfoResponse) {}
+    // UploadModel rpc.
+    // :NOTE: This method won't be used from Rekcurd-dashboard users.
     rpc UploadModel (stream FileStream) returns (Status) {}
+    // SwitchModel rpc.
+    // :NOTE: This method won't be used from Rekcurd-dashboard users.
     rpc SwitchModel (SwitchModelRequest) returns (Status) {}
+    // UploadEvaluationData rpc.
+    // :NOTE: This method won't be used from Rekcurd-dashboard users.
     rpc UploadEvaluationData (stream FileStream) returns (Status) {}
+    // EvaluateModel rpc.
     rpc EvaluateModel (EvaluationDataPath) returns (EvaluationResponse) {}
+    // EvaluationResult rpc.
     rpc EvaluationResult (EvaluationDataPath) returns (stream EvaluationResultResponse) {}
 }
 
+// RekcurdWorker service.
 service RekcurdWorker {
+    // Predict rpc.
     rpc Predict(RekcurdMessage) returns (RekcurdMessage) {};
+    // PredictInputStream rpc.
+    rpc PredictInputStream(stream RekcurdMessage) returns (RekcurdMessage) {};
+    // PredictOutputStream rpc.
+    rpc PredictOutputStream(RekcurdMessage) returns (stream RekcurdMessage) {};
+    // PredictInputOutputStream rpc.
+    rpc PredictInputOutputStream(stream RekcurdMessage) returns (stream RekcurdMessage) {};
 }
-
-// [END Services]

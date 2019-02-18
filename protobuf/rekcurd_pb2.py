@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='rekcurd.proto',
   package='rekcurd.protos',
   syntax='proto3',
-  serialized_pb=_b('\n\rrekcurd.proto\x12\x0erekcurd.protos\x1a google/protobuf/descriptor.proto\x1a\x1cgoogle/protobuf/struct.proto\"%\n\x12HealthCheckRequest\x12\x0f\n\x07service\x18\x01 \x01(\t\"\x94\x01\n\x13HealthCheckResponse\x12\x41\n\x06status\x18\x01 \x01(\x0e\x32\x31.rekcurd.protos.HealthCheckResponse.ServingStatus\":\n\rServingStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07SERVING\x10\x01\x12\x0f\n\x0bNOT_SERVING\x10\x02\"\xa2\x02\n\x0eRekcurdMessage\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12.\n\x04meta\x18\x02 \x01(\x0b\x32 .rekcurd.protos.JsonFormatString\x12+\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x1b.rekcurd.protos.DefaultDataH\x00\x12\x11\n\x07\x62inData\x18\x04 \x01(\x0cH\x00\x12\x11\n\x07strData\x18\x05 \x01(\tH\x00\x12\x31\n\x0bstrDataList\x18\x06 \x01(\x0b\x32\x1a.rekcurd.protos.StringListH\x00\x12$\n\x05score\x18\x07 \x01(\x0b\x32\x15.rekcurd.protos.ScoreB\x0c\n\ndata_oneof\"\x8f\x01\n\x06Status\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04info\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x31\n\x06status\x18\x04 \x01(\x0e\x32!.rekcurd.protos.Status.StatusFlag\"&\n\nStatusFlag\x12\x0b\n\x07SUCCESS\x10\x00\x12\x0b\n\x07\x46\x41ILURE\x10\x01\"\x1f\n\x10JsonFormatString\x12\x0b\n\x03val\x18\x01 \x01(\t\"\x83\x01\n\x0b\x44\x65\x66\x61ultData\x12\r\n\x05names\x18\x01 \x03(\t\x12(\n\x06tensor\x18\x02 \x01(\x0b\x32\x16.rekcurd.protos.TensorH\x00\x12-\n\x07ndarray\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.ListValueH\x00\x42\x0c\n\ndata_oneof\"$\n\x06Tensor\x12\r\n\x05shape\x18\x01 \x03(\x05\x12\x0b\n\x03val\x18\x02 \x03(\x01\"\x19\n\nStringList\x12\x0b\n\x03val\x18\x01 \x03(\t\"\x14\n\x05Score\x12\x0b\n\x03val\x18\x01 \x03(\x02\"\x14\n\x12ServiceInfoRequest\"\x81\x01\n\x13ServiceInfoResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x17\n\x0f\x61pplicationName\x18\x02 \x01(\t\x12\x13\n\x0bserviceName\x18\x03 \x01(\t\x12\x14\n\x0cserviceLevel\x18\x04 \x01(\t\"/\n\nFileStream\x12\x0f\n\x07\x62inData\x18\x01 \x01(\x0c\x12\x10\n\x08\x66ilePath\x18\x02 \x01(\t\"&\n\x12SwitchModelRequest\x12\x10\n\x08\x66ilePath\x18\x01 \x01(\t\":\n\x12\x45valuationDataPath\x12\x10\n\x08\x64\x61taPath\x18\x01 \x01(\t\x12\x12\n\nresultPath\x18\x02 \x01(\t\"\xc2\x01\n\x11\x45valuationMetrics\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\x12)\n\x05label\x18\x06 \x01(\x0b\x32\x1a.rekcurd.protos.StringList\x12\x30\n\x06option\x18\x07 \x01(\x0b\x32 .rekcurd.protos.JsonFormatString\"p\n\x12\x45valuationResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x32\n\x07metrics\x18\x02 \x01(\x0b\x32!.rekcurd.protos.EvaluationMetrics\"\xdf\x02\n\x18\x45valuationResultResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x32\n\x07metrics\x18\x02 \x01(\x0b\x32!.rekcurd.protos.EvaluationMetrics\x12?\n\x06\x64\x65tail\x18\x03 \x03(\x0b\x32/.rekcurd.protos.EvaluationResultResponse.Detail\x1a\xa5\x01\n\x06\x44\x65tail\x12-\n\x05input\x18\x01 \x01(\x0b\x32\x1e.rekcurd.protos.RekcurdMessage\x12.\n\x06output\x18\x02 \x01(\x0b\x32\x1e.rekcurd.protos.RekcurdMessage\x12)\n\x05label\x18\x03 \x01(\x0b\x32\x1a.rekcurd.protos.StringList\x12\x11\n\tisCorrect\x18\x04 \x01(\x08*1\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x12\x06\n\x02v3\x10\x03\x32Z\n\x06Health\x12P\n\x05\x43heck\x12\".rekcurd.protos.HealthCheckRequest\x1a#.rekcurd.protos.HealthCheckResponse2\x91\x04\n\x10RekcurdDashboard\x12X\n\x0bServiceInfo\x12\".rekcurd.protos.ServiceInfoRequest\x1a#.rekcurd.protos.ServiceInfoResponse\"\x00\x12\x45\n\x0bUploadModel\x12\x1a.rekcurd.protos.FileStream\x1a\x16.rekcurd.protos.Status\"\x00(\x01\x12K\n\x0bSwitchModel\x12\".rekcurd.protos.SwitchModelRequest\x1a\x16.rekcurd.protos.Status\"\x00\x12N\n\x14UploadEvaluationData\x12\x1a.rekcurd.protos.FileStream\x1a\x16.rekcurd.protos.Status\"\x00(\x01\x12Y\n\rEvaluateModel\x12\".rekcurd.protos.EvaluationDataPath\x1a\".rekcurd.protos.EvaluationResponse\"\x00\x12\x64\n\x10\x45valuationResult\x12\".rekcurd.protos.EvaluationDataPath\x1a(.rekcurd.protos.EvaluationResultResponse\"\x00\x30\x01\x32\\\n\rRekcurdWorker\x12K\n\x07Predict\x12\x1e.rekcurd.protos.RekcurdMessage\x1a\x1e.rekcurd.protos.RekcurdMessage\"\x00:B\n\x1arekcurd_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v3b\x06proto3')
+  serialized_pb=_b('\n\rrekcurd.proto\x12\x0erekcurd.protos\x1a google/protobuf/descriptor.proto\x1a\x1cgoogle/protobuf/struct.proto\"%\n\x12HealthCheckRequest\x12\x0f\n\x07service\x18\x01 \x01(\t\"\x94\x01\n\x13HealthCheckResponse\x12\x41\n\x06status\x18\x01 \x01(\x0e\x32\x31.rekcurd.protos.HealthCheckResponse.ServingStatus\":\n\rServingStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07SERVING\x10\x01\x12\x0f\n\x0bNOT_SERVING\x10\x02\"\xb9\x01\n\x0eRekcurdMessage\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12.\n\x04meta\x18\x02 \x01(\x0b\x32 .rekcurd.protos.JsonFormatString\x12)\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x1b.rekcurd.protos.DefaultData\x12$\n\x05score\x18\x04 \x01(\x0b\x32\x15.rekcurd.protos.Score\"\x8f\x01\n\x06Status\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0c\n\x04info\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x31\n\x06status\x18\x04 \x01(\x0e\x32!.rekcurd.protos.Status.StatusFlag\"&\n\nStatusFlag\x12\x0b\n\x07SUCCESS\x10\x00\x12\x0b\n\x07\x46\x41ILURE\x10\x01\"\x1f\n\x10JsonFormatString\x12\x0b\n\x03val\x18\x01 \x01(\t\"\xdc\x01\n\x0b\x44\x65\x66\x61ultData\x12\r\n\x05names\x18\x01 \x03(\t\x12(\n\x06tensor\x18\x02 \x01(\x0b\x32\x16.rekcurd.protos.TensorH\x00\x12-\n\x07ndarray\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.ListValueH\x00\x12\x11\n\x07\x62inData\x18\x04 \x01(\x0cH\x00\x12\x11\n\x07strData\x18\x05 \x01(\tH\x00\x12\x31\n\x0bstrDataList\x18\x06 \x01(\x0b\x32\x1a.rekcurd.protos.StringListH\x00\x42\x0c\n\ndata_oneof\"$\n\x06Tensor\x12\r\n\x05shape\x18\x01 \x03(\x05\x12\x0b\n\x03val\x18\x02 \x03(\x01\"\x19\n\nStringList\x12\x0b\n\x03val\x18\x01 \x03(\t\"\x14\n\x05Score\x12\x0b\n\x03val\x18\x01 \x03(\x02\"\x14\n\x12ServiceInfoRequest\"\x81\x01\n\x13ServiceInfoResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x17\n\x0f\x61pplicationName\x18\x02 \x01(\t\x12\x13\n\x0bserviceName\x18\x03 \x01(\t\x12\x14\n\x0cserviceLevel\x18\x04 \x01(\t\"/\n\nFileStream\x12\x0f\n\x07\x62inData\x18\x01 \x01(\x0c\x12\x10\n\x08\x66ilePath\x18\x02 \x01(\t\"&\n\x12SwitchModelRequest\x12\x10\n\x08\x66ilePath\x18\x01 \x01(\t\":\n\x12\x45valuationDataPath\x12\x10\n\x08\x64\x61taPath\x18\x01 \x01(\t\x12\x12\n\nresultPath\x18\x02 \x01(\t\"\xc2\x01\n\x11\x45valuationMetrics\x12\x0b\n\x03num\x18\x01 \x01(\x05\x12\x10\n\x08\x61\x63\x63uracy\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x03(\x02\x12\x0e\n\x06recall\x18\x04 \x03(\x02\x12\x0e\n\x06\x66value\x18\x05 \x03(\x02\x12)\n\x05label\x18\x06 \x01(\x0b\x32\x1a.rekcurd.protos.StringList\x12\x30\n\x06option\x18\x07 \x01(\x0b\x32 .rekcurd.protos.JsonFormatString\"p\n\x12\x45valuationResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x32\n\x07metrics\x18\x02 \x01(\x0b\x32!.rekcurd.protos.EvaluationMetrics\"\xdf\x02\n\x18\x45valuationResultResponse\x12&\n\x06status\x18\x01 \x01(\x0b\x32\x16.rekcurd.protos.Status\x12\x32\n\x07metrics\x18\x02 \x01(\x0b\x32!.rekcurd.protos.EvaluationMetrics\x12?\n\x06\x64\x65tail\x18\x03 \x03(\x0b\x32/.rekcurd.protos.EvaluationResultResponse.Detail\x1a\xa5\x01\n\x06\x44\x65tail\x12-\n\x05input\x18\x01 \x01(\x0b\x32\x1e.rekcurd.protos.RekcurdMessage\x12.\n\x06output\x18\x02 \x01(\x0b\x32\x1e.rekcurd.protos.RekcurdMessage\x12)\n\x05label\x18\x03 \x01(\x0b\x32\x1a.rekcurd.protos.StringList\x12\x11\n\tisCorrect\x18\x04 \x01(\x08*1\n\x0f\x45numVersionInfo\x12\x06\n\x02v0\x10\x00\x12\x06\n\x02v1\x10\x01\x12\x06\n\x02v2\x10\x02\x12\x06\n\x02v3\x10\x03\x32Z\n\x06Health\x12P\n\x05\x43heck\x12\".rekcurd.protos.HealthCheckRequest\x1a#.rekcurd.protos.HealthCheckResponse2\x91\x04\n\x10RekcurdDashboard\x12X\n\x0bServiceInfo\x12\".rekcurd.protos.ServiceInfoRequest\x1a#.rekcurd.protos.ServiceInfoResponse\"\x00\x12\x45\n\x0bUploadModel\x12\x1a.rekcurd.protos.FileStream\x1a\x16.rekcurd.protos.Status\"\x00(\x01\x12K\n\x0bSwitchModel\x12\".rekcurd.protos.SwitchModelRequest\x1a\x16.rekcurd.protos.Status\"\x00\x12N\n\x14UploadEvaluationData\x12\x1a.rekcurd.protos.FileStream\x1a\x16.rekcurd.protos.Status\"\x00(\x01\x12Y\n\rEvaluateModel\x12\".rekcurd.protos.EvaluationDataPath\x1a\".rekcurd.protos.EvaluationResponse\"\x00\x12\x64\n\x10\x45valuationResult\x12\".rekcurd.protos.EvaluationDataPath\x1a(.rekcurd.protos.EvaluationResultResponse\"\x00\x30\x01\x32\xf3\x02\n\rRekcurdWorker\x12K\n\x07Predict\x12\x1e.rekcurd.protos.RekcurdMessage\x1a\x1e.rekcurd.protos.RekcurdMessage\"\x00\x12X\n\x12PredictInputStream\x12\x1e.rekcurd.protos.RekcurdMessage\x1a\x1e.rekcurd.protos.RekcurdMessage\"\x00(\x01\x12Y\n\x13PredictOutputStream\x12\x1e.rekcurd.protos.RekcurdMessage\x1a\x1e.rekcurd.protos.RekcurdMessage\"\x00\x30\x01\x12`\n\x18PredictInputOutputStream\x12\x1e.rekcurd.protos.RekcurdMessage\x1a\x1e.rekcurd.protos.RekcurdMessage\"\x00(\x01\x30\x01:B\n\x1arekcurd_grpc_proto_version\x12\x1c.google.protobuf.FileOptions\x18\xd0\x86\x03 \x01(\tB\x06\x82\xb5\x18\x02v3b\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _ENUMVERSIONINFO = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1948,
-  serialized_end=1997,
+  serialized_start=1932,
+  serialized_end=1981,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMVERSIONINFO)
 
@@ -114,8 +114,8 @@ _STATUS_STATUSFLAG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=686,
-  serialized_end=724,
+  serialized_start=581,
+  serialized_end=619,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS_STATUSFLAG)
 
@@ -212,29 +212,8 @@ _REKCURDMESSAGE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='binData', full_name='rekcurd.protos.RekcurdMessage.binData', index=3,
-      number=4, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='strData', full_name='rekcurd.protos.RekcurdMessage.strData', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='strDataList', full_name='rekcurd.protos.RekcurdMessage.strDataList', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='score', full_name='rekcurd.protos.RekcurdMessage.score', index=6,
-      number=7, type=11, cpp_type=10, label=1,
+      name='score', full_name='rekcurd.protos.RekcurdMessage.score', index=3,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -250,12 +229,9 @@ _REKCURDMESSAGE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='data_oneof', full_name='rekcurd.protos.RekcurdMessage.data_oneof',
-      index=0, containing_type=None, fields=[]),
   ],
   serialized_start=288,
-  serialized_end=578,
+  serialized_end=473,
 )
 
 
@@ -307,8 +283,8 @@ _STATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=581,
-  serialized_end=724,
+  serialized_start=476,
+  serialized_end=619,
 )
 
 
@@ -338,8 +314,8 @@ _JSONFORMATSTRING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=726,
-  serialized_end=757,
+  serialized_start=621,
+  serialized_end=652,
 )
 
 
@@ -371,6 +347,27 @@ _DEFAULTDATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='binData', full_name='rekcurd.protos.DefaultData.binData', index=3,
+      number=4, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='strData', full_name='rekcurd.protos.DefaultData.strData', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='strDataList', full_name='rekcurd.protos.DefaultData.strDataList', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -386,8 +383,8 @@ _DEFAULTDATA = _descriptor.Descriptor(
       name='data_oneof', full_name='rekcurd.protos.DefaultData.data_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=760,
-  serialized_end=891,
+  serialized_start=655,
+  serialized_end=875,
 )
 
 
@@ -424,8 +421,8 @@ _TENSOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=893,
-  serialized_end=929,
+  serialized_start=877,
+  serialized_end=913,
 )
 
 
@@ -455,8 +452,8 @@ _STRINGLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=931,
-  serialized_end=956,
+  serialized_start=915,
+  serialized_end=940,
 )
 
 
@@ -486,8 +483,8 @@ _SCORE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=958,
-  serialized_end=978,
+  serialized_start=942,
+  serialized_end=962,
 )
 
 
@@ -510,8 +507,8 @@ _SERVICEINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=980,
-  serialized_end=1000,
+  serialized_start=964,
+  serialized_end=984,
 )
 
 
@@ -562,8 +559,8 @@ _SERVICEINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1003,
-  serialized_end=1132,
+  serialized_start=987,
+  serialized_end=1116,
 )
 
 
@@ -600,8 +597,8 @@ _FILESTREAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1181,
+  serialized_start=1118,
+  serialized_end=1165,
 )
 
 
@@ -631,8 +628,8 @@ _SWITCHMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1183,
-  serialized_end=1221,
+  serialized_start=1167,
+  serialized_end=1205,
 )
 
 
@@ -669,8 +666,8 @@ _EVALUATIONDATAPATH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1223,
-  serialized_end=1281,
+  serialized_start=1207,
+  serialized_end=1265,
 )
 
 
@@ -742,8 +739,8 @@ _EVALUATIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1284,
-  serialized_end=1478,
+  serialized_start=1268,
+  serialized_end=1462,
 )
 
 
@@ -780,8 +777,8 @@ _EVALUATIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1480,
-  serialized_end=1592,
+  serialized_start=1464,
+  serialized_end=1576,
 )
 
 
@@ -832,8 +829,8 @@ _EVALUATIONRESULTRESPONSE_DETAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1781,
-  serialized_end=1946,
+  serialized_start=1765,
+  serialized_end=1930,
 )
 
 _EVALUATIONRESULTRESPONSE = _descriptor.Descriptor(
@@ -876,8 +873,8 @@ _EVALUATIONRESULTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1595,
-  serialized_end=1946,
+  serialized_start=1579,
+  serialized_end=1930,
 )
 
 _HEALTHCHECKRESPONSE.fields_by_name['status'].enum_type = _HEALTHCHECKRESPONSE_SERVINGSTATUS
@@ -885,30 +882,27 @@ _HEALTHCHECKRESPONSE_SERVINGSTATUS.containing_type = _HEALTHCHECKRESPONSE
 _REKCURDMESSAGE.fields_by_name['status'].message_type = _STATUS
 _REKCURDMESSAGE.fields_by_name['meta'].message_type = _JSONFORMATSTRING
 _REKCURDMESSAGE.fields_by_name['data'].message_type = _DEFAULTDATA
-_REKCURDMESSAGE.fields_by_name['strDataList'].message_type = _STRINGLIST
 _REKCURDMESSAGE.fields_by_name['score'].message_type = _SCORE
-_REKCURDMESSAGE.oneofs_by_name['data_oneof'].fields.append(
-  _REKCURDMESSAGE.fields_by_name['data'])
-_REKCURDMESSAGE.fields_by_name['data'].containing_oneof = _REKCURDMESSAGE.oneofs_by_name['data_oneof']
-_REKCURDMESSAGE.oneofs_by_name['data_oneof'].fields.append(
-  _REKCURDMESSAGE.fields_by_name['binData'])
-_REKCURDMESSAGE.fields_by_name['binData'].containing_oneof = _REKCURDMESSAGE.oneofs_by_name['data_oneof']
-_REKCURDMESSAGE.oneofs_by_name['data_oneof'].fields.append(
-  _REKCURDMESSAGE.fields_by_name['strData'])
-_REKCURDMESSAGE.fields_by_name['strData'].containing_oneof = _REKCURDMESSAGE.oneofs_by_name['data_oneof']
-_REKCURDMESSAGE.oneofs_by_name['data_oneof'].fields.append(
-  _REKCURDMESSAGE.fields_by_name['strDataList'])
-_REKCURDMESSAGE.fields_by_name['strDataList'].containing_oneof = _REKCURDMESSAGE.oneofs_by_name['data_oneof']
 _STATUS.fields_by_name['status'].enum_type = _STATUS_STATUSFLAG
 _STATUS_STATUSFLAG.containing_type = _STATUS
 _DEFAULTDATA.fields_by_name['tensor'].message_type = _TENSOR
 _DEFAULTDATA.fields_by_name['ndarray'].message_type = google_dot_protobuf_dot_struct__pb2._LISTVALUE
+_DEFAULTDATA.fields_by_name['strDataList'].message_type = _STRINGLIST
 _DEFAULTDATA.oneofs_by_name['data_oneof'].fields.append(
   _DEFAULTDATA.fields_by_name['tensor'])
 _DEFAULTDATA.fields_by_name['tensor'].containing_oneof = _DEFAULTDATA.oneofs_by_name['data_oneof']
 _DEFAULTDATA.oneofs_by_name['data_oneof'].fields.append(
   _DEFAULTDATA.fields_by_name['ndarray'])
 _DEFAULTDATA.fields_by_name['ndarray'].containing_oneof = _DEFAULTDATA.oneofs_by_name['data_oneof']
+_DEFAULTDATA.oneofs_by_name['data_oneof'].fields.append(
+  _DEFAULTDATA.fields_by_name['binData'])
+_DEFAULTDATA.fields_by_name['binData'].containing_oneof = _DEFAULTDATA.oneofs_by_name['data_oneof']
+_DEFAULTDATA.oneofs_by_name['data_oneof'].fields.append(
+  _DEFAULTDATA.fields_by_name['strData'])
+_DEFAULTDATA.fields_by_name['strData'].containing_oneof = _DEFAULTDATA.oneofs_by_name['data_oneof']
+_DEFAULTDATA.oneofs_by_name['data_oneof'].fields.append(
+  _DEFAULTDATA.fields_by_name['strDataList'])
+_DEFAULTDATA.fields_by_name['strDataList'].containing_oneof = _DEFAULTDATA.oneofs_by_name['data_oneof']
 _SERVICEINFORESPONSE.fields_by_name['status'].message_type = _STATUS
 _EVALUATIONMETRICS.fields_by_name['label'].message_type = _STRINGLIST
 _EVALUATIONMETRICS.fields_by_name['option'].message_type = _JSONFORMATSTRING
@@ -1080,8 +1074,8 @@ _HEALTH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1999,
-  serialized_end=2089,
+  serialized_start=1983,
+  serialized_end=2073,
   methods=[
   _descriptor.MethodDescriptor(
     name='Check',
@@ -1104,8 +1098,8 @@ _REKCURDDASHBOARD = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=2092,
-  serialized_end=2621,
+  serialized_start=2076,
+  serialized_end=2605,
   methods=[
   _descriptor.MethodDescriptor(
     name='ServiceInfo',
@@ -1173,13 +1167,40 @@ _REKCURDWORKER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=2,
   options=None,
-  serialized_start=2623,
-  serialized_end=2715,
+  serialized_start=2608,
+  serialized_end=2979,
   methods=[
   _descriptor.MethodDescriptor(
     name='Predict',
     full_name='rekcurd.protos.RekcurdWorker.Predict',
     index=0,
+    containing_service=None,
+    input_type=_REKCURDMESSAGE,
+    output_type=_REKCURDMESSAGE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PredictInputStream',
+    full_name='rekcurd.protos.RekcurdWorker.PredictInputStream',
+    index=1,
+    containing_service=None,
+    input_type=_REKCURDMESSAGE,
+    output_type=_REKCURDMESSAGE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PredictOutputStream',
+    full_name='rekcurd.protos.RekcurdWorker.PredictOutputStream',
+    index=2,
+    containing_service=None,
+    input_type=_REKCURDMESSAGE,
+    output_type=_REKCURDMESSAGE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PredictInputOutputStream',
+    full_name='rekcurd.protos.RekcurdWorker.PredictInputOutputStream',
+    index=3,
     containing_service=None,
     input_type=_REKCURDMESSAGE,
     output_type=_REKCURDMESSAGE,

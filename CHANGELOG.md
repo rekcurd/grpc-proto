@@ -2,10 +2,18 @@
 
 ## [Unreleased](https://github.com/rekcurd/grpc-proto/tree/HEAD)
 
-[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.5...HEAD)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v1.0.0...HEAD)
+
+**Closed issues:**
+
+- Write unit tests for gRPC [\#4](https://github.com/rekcurd/grpc-proto/issues/4)
+
+## [v1.0.0](https://github.com/rekcurd/grpc-proto/tree/v1.0.0) (2019-02-07)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v0.4.5...v1.0.0)
 
 **Merged pull requests:**
 
+- add label to metrics [\#17](https://github.com/rekcurd/grpc-proto/pull/17) ([yuki-mt](https://github.com/yuki-mt))
 - Replace from `drucker` to `rekcurd` [\#16](https://github.com/rekcurd/grpc-proto/pull/16) ([keigohtr](https://github.com/keigohtr))
 - Rename repository link [\#15](https://github.com/rekcurd/grpc-proto/pull/15) ([keigohtr](https://github.com/keigohtr))
 

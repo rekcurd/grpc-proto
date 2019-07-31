@@ -1,8 +1,8 @@
 # Change Log
 
-## [Unreleased](https://github.com/rekcurd/grpc-proto/tree/HEAD)
+## [v1.0.1](https://github.com/rekcurd/grpc-proto/tree/v1.0.1)
 
-[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v1.0.0...HEAD)
+[Full Changelog](https://github.com/rekcurd/grpc-proto/compare/v1.0.0...v1.0.1)
 
 **Closed issues:**
 

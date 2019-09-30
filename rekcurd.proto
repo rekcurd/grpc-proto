@@ -26,6 +26,8 @@ message HealthCheckResponse {
 // https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 service Health {
     rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+
+    rpc Watch(HealthCheckRequest) returns (stream HealthCheckResponse);
 }
 
 

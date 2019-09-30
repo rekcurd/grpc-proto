@@ -20,6 +20,11 @@ class HealthStub(object):
         request_serializer=rekcurd__pb2.HealthCheckRequest.SerializeToString,
         response_deserializer=rekcurd__pb2.HealthCheckResponse.FromString,
         )
+    self.Watch = channel.unary_stream(
+        '/rekcurd.protos.Health/Watch',
+        request_serializer=rekcurd__pb2.HealthCheckRequest.SerializeToString,
+        response_deserializer=rekcurd__pb2.HealthCheckResponse.FromString,
+        )
 
 
 class HealthServicer(object):
@@ -34,11 +39,23 @@ class HealthServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Watch(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_HealthServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'Check': grpc.unary_unary_rpc_method_handler(
           servicer.Check,
+          request_deserializer=rekcurd__pb2.HealthCheckRequest.FromString,
+          response_serializer=rekcurd__pb2.HealthCheckResponse.SerializeToString,
+      ),
+      'Watch': grpc.unary_stream_rpc_method_handler(
+          servicer.Watch,
           request_deserializer=rekcurd__pb2.HealthCheckRequest.FromString,
           response_serializer=rekcurd__pb2.HealthCheckResponse.SerializeToString,
       ),
